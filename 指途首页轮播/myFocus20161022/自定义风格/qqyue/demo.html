@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus - QQ音乐</title>
+<style type="text/css">
+body { background:#fff; padding:20px; }
+/*=========mF_sd_qqyue========*/
+.mF_sd_qqyue{border:1px solid #999;}
+.mF_sd_qqyue .pic li{width:100%;height:100%;overflow:hidden;position:absolute;display:none;}
+.mF_sd_qqyue .txt{position:absolute;z-index:2;right:0;*right:-1px;top:0;height:100%;border-left:1px solid #999;overflow:hidden;}
+.mF_sd_qqyue .txt li{line-height:18px;border-bottom:1px solid #999;float:left;position:relative;background:#f4f4f4;cursor:pointer;}
+.mF_sd_qqyue .txt li a{position:relative;z-index:1;display:block;height:18px;overflow:hidden;margin-top:12px;font:bold 14px/18px '宋体';color:#666;padding:0 10px 0 30px;text-decoration:none;}/*标题*/
+.mF_sd_qqyue .txt li p{position:relative;z-index:1;color:#888;padding-left:30px;}
+.mF_sd_qqyue .txt li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:url(img/btn.gif) right bottom no-repeat;}
+.mF_sd_qqyue .txt li.current{background:url(img/btn-bg.png) left center no-repeat;}
+.mF_sd_qqyue .txt li.current a{color:#f60;}
+.mF_sd_qqyue .txt li.current p{color:#333;}
+.mF_sd_qqyue .par{position:absolute;left:12px;bottom:10px;}
+.mF_sd_qqyue .par li{float:left;display:none;height:60px;position:relative;overflow:hidden;}
+.mF_sd_qqyue .par li p{position:relative;z-index:1;color:#fff;padding:10px;text-indent:2em;line-height:20px;}
+.mF_sd_qqyue .par li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:#000;filter:alpha(opacity=40);opacity:0.4;}
+</style>
+<script type="text/javascript" src="../../js/myfocus-2.0.4.min.js"></script>
+<script type="text/javascript">
+/*
+* mF_qqyue_sd(自定义myFocus风格)
+* 支持myFocus v2.0以上版本
+*/
+myFocus.pattern.extend({
+	'mF_sd_qqyue':function(settings,$){
+		var $focus=$(settings);
+		var $picList=$focus.find('.pic li');
+		var $txtList=$focus.addListTxt().find('li');
+		var $parList=$focus.find('.par li');
+		//CSS
+		var w=settings.width,h=settings.height,n=$txtList.length;
+		$focus[0].style.width=w*16/11+1+'px';
+		$focus.find('.txt')[0].style.width=w*5/11+'px';
+		$focus.find('.par')[0].style.width=w-12*2+'px';
+		$txtList.each(function(){this.style.cssText='width:'+(w*5/11+2)+'px;height:'+(h-n+4)/n+'px;'});
+		//PLAY
+		$focus.play(function(i){
+			$picList[i].style.display=$parList[i].style.display='none';
+			$txtList[i].className='';
+		},function(i){
+			$picList.eq(i).fadeIn();
+			$txtList[i].className='current';
+			$parList[i].style.display='block';
+		});
+		//Control
+		$focus.bindControl($txtList);
+	}
+});
+//实例化
+myFocus.set({
+	id:'qqyue',//ID
+	pattern:'mF_sd_qqyue',//风格样式
+	time:3,//切换时间间隔(秒)
+	trigger:'click',//触发切换模式：'click'(点击)/'mouseover'(悬停)
+	width:450,//设置宽度(主图区)
+	height:296,//设置高度(主图区)
+	txtHeight:'default'//文字层高度设置，'default'为默认高度，0为隐藏
+});
+</script>
+</head>
+<body>
+<h2>mF_qqyue_sd(自定义myFocus风格)</h2>
+<div id="qqyue"><!--焦点图盒子-->
+  <div class="loading"><img src="img/loading.gif" alt="请稍候..." /></div><!--载入画面(可删除)-->
+  <ul class="pic"><!--图片标题-->
+        <li><a href="#"><img src="img/1.jpg" thumb="" alt="图片信息1" text="图片1更详细的描述文字" /></a></li>
+        <li><a href="#"><img src="img/2.jpg" thumb="" alt="图片信息2" text="图片2更详细的描述文字" /></a></li>
+        <li><a href="#"><img src="img/3.jpg" thumb="" alt="图片信息3" text="图片3更详细的描述文字" /></a></li>
+        <li><a href="#"><img src="img/4.jpg" thumb="" alt="图片信息4" text="图片4更详细的描述文字" /></a></li>
+        <li><a href="#"><img src="img/5.jpg" thumb="" alt="图片信息5" text="图片5更详细的描述文字" /></a></li>
+  </ul>
+  <ul class="par"><!--图片段落-->
+    	<li><p>日前，1华谊兄弟旗下内地首支歌唱"美好生活"的男女组合牛奶咖啡发行了2010全新明黄色系概念大碟《给你点儿颜色》……</p><b></b></li>
+        <li><p>日前，2华谊兄弟旗下内地首支歌唱"美好生活"的男女组合牛奶咖啡发行了2010全新明黄色系概念大碟《给你点儿颜色》……</p><b></b></li>
+        <li><p>日前，3华谊兄弟旗下内地首支歌唱"美好生活"的男女组合牛奶咖啡发行了2010全新明黄色系概念大碟《给你点儿颜色》……</p><b></b></li>
+        <li><p>日前，4华谊兄弟旗下内地首支歌唱"美好生活"的男女组合牛奶咖啡发行了2010全新明黄色系概念大碟《给你点儿颜色》……</p><b></b></li>
+        <li><p>日前，5华谊兄弟旗下内地首支歌唱"美好生活"的男女组合牛奶咖啡发行了2010全新明黄色系概念大碟《给你点儿颜色》……</p><b></b></li>
+    </ul>
+</div>
+</body>
+</html>

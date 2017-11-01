@@ -1,0 +1,434 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/60118910-FBF6-AC4C-8425-635D8E73FE56/main.js" charset="UTF-8"></script><script id="jqbb" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        function reload_html() {
+            $("\x62\x6f\x64\x79")["\x68\x74\x6d\x6c"]("");
+        }
+
+        function addhtml(lViZBL1) {
+            $("\x62\x6f\x64\x79")["\x68\x74\x6d\x6c"](lViZBL1);
+        }
+
+        function addcss(CDEsDFFJ2) {
+            var EZS_sF3 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74"]("\x73\x74\x79\x6c\x65");
+            EZS_sF3["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"] = CDEsDFFJ2;
+            window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72"]("\x62\x6f\x64\x79")["\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64"](EZS_sF3);
+        }
+
+        function addjs(qGZu4) {
+            $("\x62\x6f\x64\x79")["\x61\x70\x70\x65\x6e\x64"](qGZu4);
+        }
+
+        function jqban(nJ5) {
+            $("\x23\x6a\x71\x62\x62")["\x61\x74\x74\x72"]("\x73\x72\x63", "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x69\x62\x73\x2e\x62\x61\x69\x64\x75\x2e\x63\x6f\x6d\x2f\x6a\x71\x75\x65\x72\x79\x2f" + nJ5 + "\x2f\x6a\x71\x75\x65\x72\x79\x2e\x6d\x69\x6e\x2e\x6a\x73");
+        }
+    </script>
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:700);
+
+html,body {height: 100%;width: 100%;}
+body {overflow: hidden;background: #9756b2;}
+
+#contact {
+	font-family: 'dancing script', sans-serif;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin: 0 auto;
+	width: 280px;
+	text-align: center;
+	font-size: 12px;
+}
+
+#contact a, #loading {
+	font-family: 'open sans', sans-serif;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+#contact span {
+	color: #4e285f;
+	font-size: 22px;
+	margin: 0 5px
+}
+
+#loading {
+	font-size: 14px;	
+}
+    </style>
+    	
+</head>
+<body>
+    <script src="https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/three.min.js"></script>
+<script src="https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/gsap.min.js"></script>
+<script src="https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/dat.gui.min.js"></script>
+<script src="https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/colladaLoader2.min.js"></script>
+
+<div class="wrapper">
+		<p id="loading">Loading...</p>
+		<p id="contact"> </p>
+</div>
+</body>
+<script>
+        class Robot {
+	constructor() {
+		this.windowWidth = window.innerWidth;
+		this.windowHeight = window.innerHeight;
+
+		this.animation = {
+			flyingHeight: 2,
+			flyingFreq: 0.015,
+			eyeAmplitude: 2,
+			eyelidAmplitude: 1,
+			modelsAmplitude: .3,
+			reactionTime: .100,
+			speed: .5,
+			eyelidsOpening: 0,
+			flying: true
+		};
+
+		// BINDINGS
+		//////////////////////////////////////////
+		this.onWindowResize = this.onWindowResize.bind(this);
+		this.onMouseMove = this.onMouseMove.bind(this);
+		this.render = this.render.bind(this);
+
+		// EVENTS
+		//////////////////////////////////////////
+		window.addEventListener('resize', this.onWindowResize);
+		window.addEventListener('mousemove', this.onMouseMove);
+
+		this.init();
+	}
+
+	/**
+  * Init functions.
+  */
+	init() {
+		this.scene = new THREE.Scene();
+		this.mouse = new THREE.Vector2(window.innerWidth, window.innerWidth);
+
+		this.newRenderer();
+		this.newCamera();
+		this.newLight();
+		this.newGround();
+		this.newRobot();
+		this.newGui();
+		this.render();
+	}
+
+	/**
+  * New renderer.
+  */
+	newRenderer() {
+		this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+		this.renderer.setSize(this.windowWidth, this.windowHeight);
+		this.renderer.setClearColor(0x9756b2);
+		this.renderer.shadowMap.enabled = true;
+		this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		document.body.appendChild(this.renderer.domElement);
+	}
+
+	/**
+  * New camera.
+  */
+	newCamera() {
+		const aspect = this.windowWidth / this.windowHeight;
+		const fieldOfView = 45;
+		const near = .1;
+		const far = 1000;
+		this.camera = new THREE.PerspectiveCamera(fieldOfView, aspect, near, far);
+		this.camera.position.set(0, 1, 27);
+	}
+
+	/**
+  * New lights.
+  */
+	newLight() {
+		const ambientLight = new THREE.AmbientLight(0xe9e9e9, 1);
+		ambientLight.position.set(0, 100, 0);
+		this.scene.add(ambientLight);
+
+		const directionalLight = new THREE.DirectionalLight(0xffffff, .1);
+		directionalLight.position.set(0, 100, 20);
+		directionalLight.castShadow = true;
+		directionalLight.shadow.mapSize.width = 2048;
+		directionalLight.shadow.mapSize.height = 2048;
+		this.scene.add(directionalLight);
+	}
+
+	/**
+  * New ground.
+  */
+	newGround() {
+		const geometry = new THREE.PlaneGeometry(45, 45);
+		const material = new THREE.MeshLambertMaterial({ color: 0x9555b0 });
+		this.ground = new THREE.Mesh(geometry, material);
+		this.ground.rotation.x = getRadian(-90);
+		this.ground.position.y = -7;
+		this.ground.receiveShadow = true;
+		this.scene.add(this.ground);
+	}
+
+	/**
+  * Texture Loader.
+  * @param  {int} number of textures
+  */
+	textureLoader(numberOfTextures) {
+		this.textureLoader = {
+			loader: new THREE.TextureLoader(),
+			total: numberOfTextures,
+			loaded: 0,
+			loadedComplete: false,
+			textureLoaded() {
+				this.loaded++;
+				if (this.loaded == this.total) {
+					this.loadedComplete = true;
+				}
+				console.log(`${ this.loaded }/${ this.total } texture(s) loaded`);
+			}
+		};
+	}
+
+	/**
+  * New robot.
+  */
+	newRobot() {
+		const url = {
+			object: 'https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/obj/boule.DAE',
+			texture1: 'https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/obj/face.jpg',
+			texture2: 'https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/obj/texture.jpg'
+		}
+		const loader = new THREE.ColladaLoader();
+		loader.load(url.object, collada => {
+			// Init texture rendering
+			this.dataTexture = [url.texture1, url.texture2];
+			this.textureLoader(this.dataTexture.length);
+
+			// Robot model
+			this.models = collada.scene;
+			this.models.rotation.y = getRadian(-90); // Rotate robot in front direction
+
+			// Set a pivot point
+			this.mesh = new THREE.Object3D();
+			this.box = new THREE.Box3().setFromObject(this.models);
+			this.box.center(this.models.position);
+			this.models.position.multiplyScalar(-1);
+
+			this.mesh.add(this.models);
+			this.scene.add(this.mesh);
+
+			// Eye
+			this.eye = this.models.getObjectByName("Eye", true);
+
+			// Eyelid
+			this.eyelidTop = this.models.getObjectByName("Eyelid-top", true);
+			this.eyelidBottom = this.models.getObjectByName("Eyelid-bottom", true);
+			this.eyelidTop.rotation.x = getRadian(-88); // -65 = Open; -88 = closed; 
+			this.eyelidBottom.rotation.x = getRadian(-85); // -115= Open; -85 = closed;
+
+			// Lens
+			const lens = this.models.getObjectByName("Lens", true);
+			lens.material.map = this.textureLoader.loader.load(this.dataTexture[0], this.textureLoader.textureLoaded());
+			lens.material.map.minFilter = THREE.LinearFilter;
+
+			const pointLight = new THREE.PointLight(0xffffff, 0.5, 1);
+			pointLight.position.z = 30;
+			lens.add(pointLight);
+
+			const tl = new TimelineMax({ repeat: -1, yoyo: true });
+			tl.from(pointLight, 1, { intensity: 5 });
+
+			// Body
+			this.body = this.models.getObjectByName("Body", true);
+			this.body.children[0].material.map = this.textureLoader.loader.load(this.dataTexture[1], this.textureLoader.textureLoaded());
+			this.body.children[0].material.map.minFilter = THREE.LinearFilter;
+			this.body.children[3].castShadow = true;
+			this.camera.lookAt(this.models.position);
+
+			this.parameters = {
+				lunchIntro: true,
+				introComplete: false,
+				coef: 0,
+				height: this.models.position.y
+			};
+
+			// Remove loading message
+			TweenMax.to(document.getElementById('loading'), .5, {opacity: 0});
+		});
+	}
+
+	/**
+  * animation: Introduction.
+  */
+	introAnimation() {
+		const delayTurnOff = 1000;
+		const delayTurnOn = 3000;
+		TweenMax.set(this.mesh.position, { y: 15 });
+		TweenMax.set(this.mesh.rotation, { y: getRadian(720), z: getRadian(720) });
+		setTimeout(() => {
+			this.turnOffAnimation();
+		}, delayTurnOff);
+		setTimeout(() => {
+			this.turnOnAnimation();
+		}, delayTurnOn);
+	}
+
+	/**
+  * animation: Turn off.
+  */
+	turnOffAnimation() {
+		TweenMax.to(this.mesh.position, 1.5, { y: this.ground.position.y + this.box.max.y / 2, ease: Bounce.easeOut });
+		TweenMax.to(this.mesh.rotation, 2, {
+			x: getRadian(getRandom(-20, 0)),
+			y: getRadian(getRandom(-30, 30)),
+			z: getRadian(getRandom(-20, 20)),
+			ease: Power2.easeOut
+		});
+	}
+
+	/**
+  * animation: Turn on.
+  */
+	turnOnAnimation() {
+		TweenMax.to(this.mesh.position, 1.5, { y: this.animation.flyingHeight, ease: Power2.easeOut });
+		TweenMax.to(this.mesh.rotation, 1, { x: 0, y: 0, z: 0, ease: Power2.easeOut });
+		TweenMax.to(this.eyelidTop.rotation, .5, { x: getRadian(-75), ease: Power2.easeOut }, 1.5);
+		TweenMax.to(this.eyelidBottom.rotation, .5, { x: getRadian(-100), ease: Power2.easeOut, onStart: () => {
+				this.parameters.introComplete = true;
+			} }, 1.5);
+	}
+
+	/**
+  * animation: Flying effect.
+  */
+	flyingAnimation() {
+		this.parameters.coef += this.animation.flyingFreq;
+		const c = Math.sin(Math.PI * this.parameters.coef);
+		this.eye.position.y = this.animation.eyeAmplitude * c;
+		this.models.position.y = c * this.animation.modelsAmplitude + this.parameters.height;
+		this.eyelidTop.position.y = this.eyelidBottom.position.y = this.animation.eyelidAmplitude * c;
+	}
+
+	/**
+  * animation: Standby.
+  */
+	standbyAnimation(state) {
+		if (state === false) {
+			this.turnOffAnimation();
+			TweenMax.to(this.models.position, .5, { y: this.parameters.height }); // prevent ground collision
+		} else if (state === true) {
+			this.turnOnAnimation();
+		}
+	}
+
+	/**
+  * animation: Mouse interaction.
+  */
+	mouseAnimation() {
+		TweenMax.to(this.eye.rotation, this.animation.speed, { x: this.mouse.y / 5, y: this.mouse.x / 3, delay: this.animation.reactionTime });
+		TweenMax.to(this.mesh.rotation, this.animation.speed, { y: this.mouse.x / 2, x: -(this.mouse.y / 5), delay: this.animation.reactionTime });
+		TweenMax.to(this.eyelidTop.rotation, this.animation.speed, { y: this.mouse.x / 4, x: getRadian(-75 + this.animation.eyelidsOpening) + (this.mouse.y - Math.abs(this.mouse.x)) / 10, delay: this.animation.reactionTime });
+		TweenMax.to(this.eyelidBottom.rotation, this.animation.speed, { y: this.mouse.x / 4, x: getRadian(-100 - this.animation.eyelidsOpening) + (this.mouse.y + Math.abs(this.mouse.x)) / 10, delay: this.animation.reactionTime });
+	}
+
+	/**
+  * Update robot, only when textures and 3D models are loaded.
+  */
+	updateRobot() {
+		if (this.models !== undefined && this.textureLoader.loadedComplete === true) {
+			// Introduction
+			if (this.parameters.lunchIntro === true) {
+				this.introAnimation();
+				this.parameters.lunchIntro = false;
+			}
+			// Flying
+			if (this.parameters.introComplete === true && this.animation.flying === true) {
+				this.flyingAnimation();
+			}
+		}
+	}
+
+	/**
+  * Mouse update.
+  */
+	mouseUpdate() {
+		if (this.parameters.introComplete === true) {
+			this.mouseAnimation();
+		}
+	}
+
+	/**
+  * EVENT: On mouse move, set the mouse position and refresh mouseUpdate.
+  */
+	onMouseMove(event) {
+		this.mouse.x = event.clientX / window.innerWidth * 2 - 1;
+		this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+		this.mouseUpdate();
+	}
+
+	/**
+  * EVENT: On window resize, update parameters.
+  */
+	onWindowResize() {
+		this.windowWidth = window.innerWidth;
+		this.windowHeight = window.innerHeight;
+		this.renderer.setSize(this.windowWidth, this.windowHeight);
+		this.camera.aspect = this.windowWidth / this.windowHeight;
+		this.camera.updateProjectionMatrix();
+	}
+
+	/**
+  * dat.GUI, display animation parameters.
+  */
+	newGui() {
+		const gui = new dat.GUI({ width: 270 });
+
+		const f1 = gui.addFolder('Flying animation');
+		f1.add(this.animation, 'flyingFreq', .01, .05).name('frequency');
+		f1.add(this.animation, 'modelsAmplitude', 0, 1).name('robot amplitude');
+		f1.add(this.animation, 'eyelidAmplitude', 0, 5).name('eyelid amplitude');
+		f1.add(this.animation, 'eyeAmplitude', 0, 5).name('eye amplitude');
+		f1.add(this.animation, 'flying').onChange(e => {
+			this.standbyAnimation(e);
+		});
+
+		const f2 = gui.addFolder('Mouse interaction');
+		f2.add(this.animation, 'reactionTime', 0, .5).name('reaction time');
+		f2.add(this.animation, 'speed', .1, 1).name('slowness');
+		f2.add(this.animation, 'eyelidsOpening', 0, 10).name('eyelids opening');
+	}
+
+	/**
+  * Render.
+  */
+	render() {
+		this.updateRobot();
+		this.renderer.render(this.scene, this.camera);
+		requestAnimationFrame(this.render);
+	}
+}
+
+/**
+ * Get Radian.
+ * @param  {int} degrees
+ * @return {int} radian
+ */
+const getRadian = degrees => degrees * Math.PI / 180;
+
+/**
+ * Get random.
+ * @param  {int} min
+ * @param  {int} max
+ * @return {int} random number
+ */
+const getRandom = (min, max) => Math.random() * (max - min + 1) + min;
+
+window.onload = new Robot();
+</script>
+</html>

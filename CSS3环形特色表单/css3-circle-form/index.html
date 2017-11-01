@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CSS3环形特色表单 转圈切换表单焦点演示地址</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+  <style>
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-family: sans-serif; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+
+img {
+    border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+</style>
+
+    <style>
+@charset "UTF-8";
+/* A Circular Form © Yogev Ahuvia  */
+/* ==============================  */
+/* This interface experiments      */
+/* with user input by implementing */
+/* a circular form, that rotates   */
+/* as the user advances through    */
+/* it's path.                      */
+.wheel {
+  width: 500px;
+  height: 500px;
+  top: 100px;
+  left: 50%;
+  margin-left: -250px;
+  border-radius: 100%;
+  position: absolute;
+  transition-delay: 0s;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transform-origin: 50% 50%;
+  transform: rotate(-22.5deg);
+}
+.wheel button.submit {
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+  display: block;
+  color: #eee;
+  font-weight: 300;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 0;
+  background: #222;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  transition: opacity 1s, box-shadow 0.3s;
+  pointer-events: none;
+  opacity: 0;
+}
+.wheel button.submit:hover {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+.wheel button.submit:focus {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul > li {
+  width: 250px;
+  height: 250px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 0px;
+  transform-origin: 100% 100%;
+  pointer-events: none;
+  transition-delay: 0s;
+  transition-property: transform;
+  transition-duration: 3s;
+  transition-timing-function: ease-in-out;
+}
+ul > li:nth-child(1) {
+  transform: rotate(0deg);
+  z-index: 8;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF14B190', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #14b190 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #14b190 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #14b190 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(2) {
+  transform: rotate(45deg);
+  z-index: 7;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF15B694', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #15b694 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #15b694 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #15b694 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(3) {
+  transform: rotate(90deg);
+  z-index: 6;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF15BA97', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #15ba97 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #15ba97 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #15ba97 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(4) {
+  transform: rotate(135deg);
+  z-index: 5;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF16BF9B', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #16bf9b 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #16bf9b 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #16bf9b 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(5) {
+  transform: rotate(180deg);
+  z-index: 4;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF16C39F', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #16c39f 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #16c39f 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #16c39f 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(6) {
+  transform: rotate(225deg);
+  z-index: 3;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF17C8A3', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #17c8a3 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #17c8a3 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #17c8a3 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(7) {
+  transform: rotate(270deg);
+  z-index: 2;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF17CCA6', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #17cca6 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #17cca6 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #17cca6 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li:nth-child(8) {
+  transform: rotate(315deg);
+  z-index: 1;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF18D1AA', endColorstr='#FFFFFFFF');
+  background-image: -moz-linear-gradient(45deg, #18d1aa 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: -webkit-linear-gradient(45deg, #18d1aa 178px, rgba(255, 255, 255, 0) 179px);
+  background-image: linear-gradient(45deg, #18d1aa 178px, rgba(255, 255, 255, 0) 179px);
+}
+ul > li > input, ul > li > .sent-label {
+  font-family: 'Open Sans';
+  color: #eee;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  outline: none;
+  pointer-events: auto;
+  display: block;
+  position: absolute;
+  top: 75%;
+  left: 0px;
+  width: 250px;
+  border: 0;
+  text-align: left;
+  padding-left: 20px;
+  background: none;
+  transform-origin: 50%;
+  transform: rotate(22.5deg);
+}
+ul > li > .sent-label {
+  display: none;
+  opacity: 0;
+  font-size: 1.2em;
+}
+
+.closed li:nth-child(1) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(2) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(3) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(4) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(5) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(6) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(7) {
+  transform: rotateX(0deg);
+}
+.closed li:nth-child(8) {
+  transform: rotateX(0deg);
+}
+
+.sent.wheel {
+  transition-delay: 0s, 3s;
+  transition-property: transform, left;
+  transition-duration: 1s, 0.5s;
+  transition-timing-function: ease-in-out, ease-in;
+  left: 150%;
+}
+.sent .sent-label {
+  display: block;
+  transition: opacity 1s;
+  opacity: 1;
+}
+.sent input {
+  pointer-events: none;
+  transition: opacity 1s;
+  opacity: 0;
+}
+.sent input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  opacity: 0;
+}
+.sent input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  opacity: 0;
+}
+.sent input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  opacity: 0;
+}
+.sent input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  opacity: 0;
+}
+.sent li:nth-child(1) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(2) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(3) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(4) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(5) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(6) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(7) {
+  transform: rotateX(0deg);
+}
+.sent li:nth-child(8) {
+  transform: rotateX(0deg);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  background: #222;
+  position: relative;
+}
+
+[type="submit"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #eee;
+  opacity: 1;
+}
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #eee;
+  opacity: 1;
+}
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #eee;
+  opacity: 1;
+}
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #eee;
+  opacity: 1;
+}
+
+input:not(:focus)::-webkit-input-placeholder {
+  /* WebKit browsers */
+  opacity: 0.4;
+}
+input:not(:focus):-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  opacity: 0.4;
+}
+input:not(:focus)::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  opacity: 0.4;
+}
+input:not(:focus):-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  opacity: 0.4;
+}
+
+</style>
+
+  <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <div class="wheel closed">
+    <form onsubmit="return false;">
+      <ul>
+        <li>
+          <label class="sent-label">Thank You!</label>
+          <input placeholder="Hi there! Press Tab..." tabindex="1">
+        </li>
+        <li>
+          <input placeholder="This is," tabindex="2">
+        </li>
+        <li>
+          <input placeholder="a circular form!" tabindex="3">
+        </li>
+        <li>
+          <input placeholder="It lets you input data," tabindex="4">
+        </li>
+        <li>
+          <input placeholder="or just read a list," tabindex="5">
+        </li>
+        <li>
+          <input placeholder="through a path." tabindex="6">
+        </li>
+        <li>
+          <input placeholder="When ready," tabindex="7">
+        </li>
+        <li>
+          <input placeholder="press Enter to Send." tabindex="8">
+        </li>
+      </ul>
+      <input type="submit">
+    </form>
+  </div>
+</div>
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+  <script src='js/jquery.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

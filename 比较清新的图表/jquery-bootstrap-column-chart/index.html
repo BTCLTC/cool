@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>基于jQuery和Bootstrap的柱形图表DEMO演示</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/lianxi.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" style="margin-top: 100px;">
+<div class="row">
+	<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+		<div class="up_downs">
+			<div class="left_up_downs pull-left">
+				<p>100%</p>
+				<p>80%</p>
+				<p>60%</p>
+				<p>40%</p>
+				<p>20%</p>
+				<p>0%</p>　
+			</div>
+			<div class="right_up_downs pull-left">
+				<div class="right_up_downs_top">
+					<!--背景线-->
+					<ul class="list-unstyled right_top_ul">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<!--柱形-->
+					<div class="right_pillar">
+						<ul class="list-unstyled right_pillar_ul">
+							<li>
+								<div class="right_pillar_for">
+									<div class="right_pillar_fill right_pillar_color1" id="pillar_content1"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：100分</p><p  class='text-left'>52%(52分)</p>">
+										<div class="right_pillar_bg_1" style="height: 50%"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="right_pillar_for">
+									<div class="right_pillar_fill right_pillar_color3" id="pillar_content3"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：100分</p><p  class='text-left'>52%(52分)</p>">
+										<div class="right_pillar_bg_3" style="height: 50%"></div>
+									</div>
+									<div class="right_pillar_fill right_pillar_color4" id="pillar_content4"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：120分</p><p  class='text-left'>46%(84分)</p>">
+										<div class="right_pillar_bg_4" style="height: 45%"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="right_pillar_for">
+									<div class="right_pillar_fill  right_pillar_color6" id="pillar_content6"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：120分</p><p  class='text-left'>46%(84分)</p>">
+										<div class="right_pillar_bg_6" style="height: 45%"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="right_pillar_for">
+									<div class="right_pillar_fill right_pillar_color7" id="pillar_content7"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：100分</p><p  class='text-left'>52%(52分)</p>">
+										<div class="right_pillar_bg_7" style="height: 50%"></div>
+									</div>
+									<div class="right_pillar_fill right_pillar_color8" id="pillar_content8"
+										 data-toggle="tooltip" data-placement="auto"
+										 title="<p class='text-left'>满分：120分</p><p  class='text-left'>46%(84分)</p>">
+										<div class="right_pillar_bg_8" style="height: 45%"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="right_pillar_for">
+									<div class="right_pillar_fill   right_pillar_color9" id="pillar_content9"
+										 data-toggle="tooltip" data-placement="auto" title="E(需努力)">
+										<div class="right_pillar_bg_9"
+											 style="height: 50%;background:#F3BC8B !important;"></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="right_up_downs_bottom clearfix">
+					<div class="pull-left text-center">分数</div>
+					<div class="pull-left text-center">小题正确率</div>
+					<div class="pull-left text-center">知识点得分率</div>
+					<div class="pull-left text-center">试卷含金量</div>
+					<div class="pull-left text-center">等级评定</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script>
+$(function () {
+	myTooltip('#pillar_content1');
+	myTooltip('#pillar_content2');
+	myTooltip('#pillar_content3');
+	myTooltip('#pillar_content4');
+	myTooltip('#pillar_content5');
+	myTooltip('#pillar_content6');
+	myTooltip('#pillar_content7');
+	myTooltip('#pillar_content8');
+	myTooltip('#pillar_content9');
+	myTooltip('#pillar_content10');
+});
+function myTooltip(id) {
+	$('[data-toggle="tooltip"]').tooltip({html: true});
+
+	$(id).on('show.bs.tooltip', function () {
+		var bg = $(id).find("div").css("background-color");
+//              alert(bg);
+		setTimeout(function () {  //alert(0);
+			$(".tooltip.top .tooltip-arrow").css({'border-top-color': bg});
+			$(".tooltip.bottom .tooltip-arrow").css({'border-bottom-color': bg});
+			$(".tooltip.left .tooltip-arrow").css({'border-left-color': bg});
+			$(".tooltip.right .tooltip-arrow").css({'border-right-color': bg});
+			$(".tooltip-inner").css({
+				'background': "#fff",
+				'color':"#333",
+				"border":"1px",
+				"border-style":'solid',
+				"border-color":bg,
+				"padding":"10px",
+				"box-sizing":"border-box",
+				"font-size":"16px"
+			});
+		}, 10);
+	})
+}
+$(function () {
+	$(".right_pillar_for").each(function (index) {
+		var len=$(".right_pillar_for").eq(index).children().length;
+		console.log(len);
+		if (len==1){
+			$(".right_pillar_for").eq(index).find(".right_pillar_fill").addClass("right_pillar_dan");
+		}else {
+			$(".right_pillar_for").eq(index).find(".right_pillar_fill").removeClass("right_pillar_dan");
+		}
+	})
+})
+</script>
+
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus v2.0</title>
+<script type="text/javascript" src="js/myfocus-2.0.4.min.js"></script>
+<style type="text/css">
+body { background:#fff; padding:20px;}
+h2{height:42px; line-height:42px; background:#f1f1f1; margin-bottom:20px; font-size:12px; color:#666; font-weight:normal;}
+#myFocus{ width:560px; height:300px;}
+</style>
+<script type="text/javascript">
+//设置
+myFocus.set({
+	id:'myFocus',//ID
+	pattern:'mF_fancy'//风格
+});
+</script>
+</head>
+<body>
+<h2>提示：可以修改“pattern”参数以更换不同的风格</h2>
+<div id="myFocus"><!--焦点图盒子-->
+  <div class="loading"></div><!--载入画面(可删除)-->
+  <div class="pic"><!--图片列表-->
+  	<ul>
+        <li><a href="#1"><img src="img/1m.jpg" thumb="" alt="Picture information 1" text="图片1更详细的描述文字" /></a></li>
+        <li><a href="#2"><img src="img/2m.jpg" thumb="" alt="Picture information 2" text="图片2更详细的描述文字" /></a></li>
+        <li><a href="#3"><img src="img/3m.jpg" thumb="" alt="Picture information 3" text="图片3更详细的描述文字" /></a></li>
+        <li><a href="#4"><img src="img/4m.jpg" thumb="" alt="Picture information 4" text="图片4更详细的描述文字" /></a></li>
+        <li><a href="#5"><img src="img/5m.jpg" thumb="" alt="Picture information 5" text="图片5更详细的描述文字" /></a></li>
+  	</ul>
+  </div>
+</div>
+</body>
+</html>

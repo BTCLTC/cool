@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#theta-viewer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+#theta-viewer.active {
+    border: 4px solid red;
+}

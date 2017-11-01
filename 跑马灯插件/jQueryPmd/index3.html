@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>支持任何DOM元素的实用jQuery跑马灯插件|DEMO3</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="css/liMarquee.css">
+	<style type="text/css">
+		.str_wrap{
+			padding-left: 3em;
+			padding-right: 3em;
+			background: #fefefe;
+			height: 10em;
+			line-height: 2em;
+			font-size: 1.2em;
+		}
+		.str3 { font-size:0 !important}
+		.str3-2 { background:none !important;}
+.str3-2 span { border:5px solid #ccc; background:#f1f1f1; color:#999; margin:0 5px; text-align:center; font:40px/100px Arial, Helvetica, sans-serif; width:100px; height:100px; display:inline-block; vertical-align:top;}
+		.str4 .str_item {
+			font-size:0;
+			line-height:0
+		}
+		.str4 img { opacity:0.8}
+		.str4 img:hover { opacity:1}
+		.str4.str_wrap.str_active {
+			background:#fff;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="jq22-container">
+		<header class="jq22-header">
+			<h1>支持任何DOM元素的实用jQuery跑马灯插件 <span>A jQuery MARQUEE Plugin</span></h1></h1>
+			
+			<div class="jq22-demo center">
+			  <a href="index.html">Default</a>
+			  <a href="index2.html">垂　直</a>
+			  <a href="index3.html" class="current">图片和HTML元素</a>
+			  <a href="index4.html">从XML中获取数据</a>
+			</div>
+		</header>
+		<div class="jq22-content">
+			<h3>HTML元素跑马灯</h3>
+			<div class="str3-2 str_wrap">
+		        <span>1</span>
+		        <span>2</span>
+		        <span>3</span>
+		        <span>4</span>
+		        <span>5</span>
+		        <span>6</span>
+		        <span>7</span>
+		        <span>8</span>
+		        <span>9</span>
+		        <span>0</span>
+		    </div>
+		    <h3>图片跑马灯</h3>
+		    <div class="str4 str_wrap">
+		        <a href="#"><img src="img/1c0ae2205709722b62e843abc0471a55_S.jpg"></a>
+		        <a href="#"><img src="img/01f1a05053c6242fcfa23075e5b963c1_S.jpg"></a>
+		        <a href="#"><img src="img/6f43b5263fbba79c5962514b85d34738_S.jpg"></a>
+		        <a href="#"><img src="img/8b6e33345ac8d5ffd9cf0d107a7d9e9d_S.jpg"></a>
+		        <a href="#"><img src="img/9b2c4b44fb86522964124ed80d03c5e8_S.jpg"></a>
+		        <a href="#"><img src="img/9ecd376e5371efaef9aad9bc9143aed8_S.jpg"></a>
+		        <a href="#"><img src="img/19f9cefdfb07230a68581d617885a3af_S.jpg"></a>
+		        <a href="#"><img src="img/36fdb1a35cd2f54f95cf2119fb5bc7ed_S.jpg"></a>
+		        <a href="#"><img src="img/0b1ad7a7b79268a1f4558db78e092446_S.jpg"></a>
+		        <a href="#"><img src="img/1c0ae2205709722b62e843abc0471a55_S.jpg"></a>
+		        <a href="#"><img src="img/01f1a05053c6242fcfa23075e5b963c1_S.jpg"></a>
+		        <a href="#"><img src="img/6f43b5263fbba79c5962514b85d34738_S.jpg"></a>
+		        <a href="#"><img src="img/8b6e33345ac8d5ffd9cf0d107a7d9e9d_S.jpg"></a>
+		        <a href="#"><img src="img/9b2c4b44fb86522964124ed80d03c5e8_S.jpg"></a>
+		        <a href="#"><img src="img/9ecd376e5371efaef9aad9bc9143aed8_S.jpg"></a>
+		        <a href="#"><img src="img/0b1ad7a7b79268a1f4558db78e092446_S.jpg"></a>
+		        <a href="#"><img src="img/19f9cefdfb07230a68581d617885a3af_S.jpg"></a>
+		        <a href="#"><img src="img/36fdb1a35cd2f54f95cf2119fb5bc7ed_S.jpg"></a>
+		        <a href="#"><img src="img/0b1ad7a7b79268a1f4558db78e092446_S.jpg"></a>
+		    </div>
+	    </div>
+	</div>
+	
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="js/jquery.liMarquee.js"></script>
+	<script>
+	$(window).load(function(){
+		$('.str3-2').liMarquee();
+		$('.str4').liMarquee();
+	});
+
+	</script> 
+</body>
+</html>

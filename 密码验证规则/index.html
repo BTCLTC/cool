@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>密码验证规则</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class='field'>
+  <div class='inputWrap'>
+    <input type='password' name='password' pattern='^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{9,}$' required>
+    <label title='Toggle password visisbility'>Password<button class='togglePass'></button>
+    </label>
+  </div>
+  <ul class='field__rules'>
+    <li>一个小写字母</li>
+    <li>一个大写字母</li>
+    <li>一个数字</li>
+    <li>一个特殊字符</li>
+    <li>最小9个字符</li>
+  </ul>
+</div>
+<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="pwd.js"></script>
+</body>
+</html>

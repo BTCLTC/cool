@@ -1,0 +1,4 @@
+@charset "utf-8";
+canvas { position: absolute; backface-visibility: hidden; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; }
+img { position: absolute; -webkit-transition: opacity .3s; transition: opacity .3s; }
+#container { position: relative; width: 768px; height: 432px; margin:0 auto; }

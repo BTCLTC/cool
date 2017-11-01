@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus v2.0</title>
+<script type="text/javascript" src="../../js/myfocus-2.0.4.min.js"></script>
+<style type="text/css">
+body { background:#fff; padding:20px; }
+#myFocus{width:600px;height:300px; border:1px solid #666; position:relative;background:#F37E19;background:-webkit-linear-gradient(#DC5216,#F37E19);background:-moz-linear-gradient(#DC5216,#F37E19);background:-o-linear-gradient(#DC5216,#F37E19);}
+#myFocus a{ text-decoration:none; color:#333;}
+#myFocus .pic{ position:absolute; top:20px;right:20px; width:200px; height:200px; overflow:visible;}
+#myFocus .pic li{ width:100%; height:100%; position:absolute;left:260px;}
+#myFocus .txt1{ position:absolute; top:20px; left:20px; }
+#myFocus .txt1 a{font-size:24px; color:#fff; text-shadow:0 1px 0 rgba(0, 0, 0, 0.4);}
+#myFocus .txt2{ position:absolute; top:96px; left:20px;}
+#myFocus .txt2 a{color:#fff;}
+#myFocus .txt3{ position:absolute; top:180px; left:20px;}
+#myFocus .txt1 li,#myFocus .txt2 li{ position:absolute; left:600px; width:336px;}
+#myFocus .txt3 li{ position:absolute;top:0;left:0; display:none;}
+#myFocus .txt3 li a{ display:block; background:#333; color:#fff; border-radius:3px;}
+#myFocus .dot{position:absolute; z-index:3;bottom:8px;left:0;width:100%;text-align:center;}
+#myFocus .dot li{ display:inline-block;margin:0 3px;*display:inline;*zoom:1; width:16px;height:6px; background:#ccc; cursor:pointer;}
+#myFocus .dot li.current{background:#000;}
+</style>
+<script type="text/javascript">
+//扩充myFocus风格
+myFocus.pattern.extend({
+	'mF_sd_kendoui':function(settings,$){
+		var $focus=$(settings),
+			$picList=$focus.find('.pic li'),
+			$txtList1=$focus.find('.txt1 li'),
+		    $txtList2=$focus.find('.txt2 li'),
+			$txtList3=$focus.find('.txt3 li'),
+			$dotList=$focus.addList('dot').find('li');
+		//PLAY
+		var param={isRunning:false};
+		$focus.play(null,function(i,n,l){
+			param.isRunning=true;
+			$txtList1.eq(l).slide({left:-settings.width},800,'easeInBack',function(){
+				$txtList1.eq(i).css({left:settings.width}).slide({left:0},500).fadeIn();
+			}).fadeOut(800,'easeInBack');
+			fx(i,l);//延迟执行部分
+			$txtList3.eq(l).fadeOut();
+		});
+		function fx(i,l){
+			setTimeout(function(){
+				if(i!==l) $picList.eq(l).slide({left:-settings.width},600,'easeIn').fadeOut(800,'easeInBack');
+				$txtList2.eq(l).slide({left:-settings.width},500,'easeInBack',function(){
+					$txtList2.eq(i).css({left:settings.width}).slide({left:0},400).fadeIn();
+					$picList.eq(i).css({left:settings.width}).slide({left:0},500,function(){
+						$txtList3.eq(i).fadeIn();
+						$dotList[l].className='';
+						$dotList[i].className='current';
+						param.isRunning=false;
+					}).fadeIn();
+				}).fadeOut(800,'easeInBack');
+			},400);
+		}
+		//Control
+		$focus.bindControl($dotList,param);
+	}
+});
+//扩展缓动方法
+myFocus.extend( myFocus.fn.easing,{
+	easeInBack: function (t, b, c, d, s) {
+		if (s == undefined) s = 1.70158;
+		return c*(t/=d)*t*((s+1)*t - s) + b;
+	}
+});
+//应用
+myFocus.set({id:'myFocus',pattern:'mF_sd_kendoui',time:3});
+</script>
+</head>
+<body>
+<h2>看不到效果的请刷新本页面</h2>
+<div id="myFocus"><!--焦点图盒子-->
+  <div class="pic"><!--图片列表-->
+  	<ul>
+        <li><a href="#1"><img src="img/1.png" /></a></li>
+        <li><a href="#2"><img src="img/1.png" /></a></li>
+        <li><a href="#3"><img src="img/1.png" /></a></li>
+  	</ul>
+  </div>
+  <div class="txt1"><!--文字列表1-->
+  	<ul>
+        <li><a href="#1">Benchmark for HTML5 Development#1</a></li>
+        <li><a href="#2">Benchmark for HTML5 Development#2</a></li>
+        <li><a href="#3">Benchmark for HTML5 Development#3</a></li>
+  	</ul>
+  </div>
+  <div class="txt2"><!--文字列表2-->
+  	<ul>
+        <li><a href="#1">#1 UI in the browser should be fast. From UI virtualization and blazing micro templates, to hardware acceleration, Kendo UI cuts no corners to deliver raw speed. It's scary fast.</a></li>
+        <li><a href="#2">#2 UI in the browser should be fast. From UI virtualization and blazing micro templates, to hardware acceleration, Kendo UI cuts no corners to deliver raw speed. It's scary fast.</a></li>
+        <li><a href="#3">#3 UI in the browser should be fast. From UI virtualization and blazing micro templates, to hardware acceleration, Kendo UI cuts no corners to deliver raw speed. It's scary fast.</a></li>
+  	</ul>
+  </div>
+  <div class="txt3"><!--文字列表3-->
+  	<ul>
+        <li><a href="#1">download1</a></li>
+        <li><a href="#2">download2</a></li>
+        <li><a href="#3">download3</a></li>
+  	</ul>
+  </div>
+</div>
+</body>
+</html>

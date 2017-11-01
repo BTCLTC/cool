@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超炫酷的HTML5图片水面倒影和波纹动画DEMO演示</title>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<style type="text/css">
+	#lakes { overflow: hidden; }
+	  #container {
+		width: 720px;
+		margin: 30px auto;
+	  }
+	canvas { float: left; }
+</style>
+
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/lake.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#lake-img').lake({
+		  'waves': 6,
+		  'scale': 0.5
+		});
+
+		$('#lake-img2').lake();
+
+		$('#lake-img3').lake({
+		  'speed': 1.5,
+		  'scale': 1.5
+		});
+	  });
+</script>
+
+</head>
+<body>
+
+<div id="container">
+	  <div id="lakes">
+		<img id="lake-img"  src="img/lake.png" style="display: none;">
+		<img id="lake-img2" src="img/lake2.png" style="display: none;">
+		<img id="lake-img3" src="img/lake3.png" style="display: none;">
+	  </div>
+</div>
+
+</body>
+</html>

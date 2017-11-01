@@ -1,0 +1,321 @@
+@import url(https://fonts.googleapis.com/css?family=Sahitya);
+
+li {
+  margin: 5px;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+  -webkit-transform-origin: 50% 50% 90px;
+          transform-origin: 50% 50% 90px;
+}
+
+.w {
+  font-size: medium;
+  font-size: initial;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50% -90px;
+          transform-origin: 50% 50% -90px;
+  will-change: transform;
+  -webkit-animation: 200ms ease-out 0ms 1 normal forwards paused;
+          animation: 200ms ease-out 0ms 1 normal forwards paused;
+}
+
+.f,
+.b {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.f {
+  background-color: #00BCD4;
+  background: -webkit-linear-gradient(#00BCD4, #673AB7);
+  background: linear-gradient(#00BCD4, #673AB7);
+  -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0)
+}
+
+.f > svg{
+  mix-blend-mode: luminosity;
+}
+
+.b {
+  padding: 16px;
+  padding: 1rem;
+  background-image: -webkit-radial-gradient(circle, #333, #000 160%);
+  background-image: radial-gradient(circle, #333, #000 160%);
+  -webkit-transform: translate3d(0,0,-1px);
+          transform: translate3d(0,0,-1px);
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-shadow: 0 20px 20px black;
+  text-align: center;
+}
+
+.in-top .b,
+.out-top .b {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, -100%, 0) rotate3d(1,0,0,90deg);
+          transform: translate3d(0, -100%, 0) rotate3d(1,0,0,90deg);
+}
+
+.in-right .b,
+.out-right .b {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(100%, 0, 0) rotate3d(0,1,0,90deg);
+          transform: translate3d(100%, 0, 0) rotate3d(0,1,0,90deg);
+}
+
+.in-bottom .b,
+.out-bottom .b {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, 100%, 0) rotate3d(-1,0,0,90deg);
+          transform: translate3d(0, 100%, 0) rotate3d(-1,0,0,90deg);
+}
+
+.in-left .b,
+.out-left .b {
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transform: translate3d(-100%,0,0) rotate3d(0,-1,0,90deg);
+          transform: translate3d(-100%,0,0) rotate3d(0,-1,0,90deg);
+}
+
+.in {
+}
+
+.in-top .w{
+  -webkit-animation-name: in-top;
+          animation-name: in-top;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.in-right .w{
+  -webkit-animation-name: in-right;
+          animation-name: in-right;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.in-bottom .w{
+  -webkit-animation-name: in-bottom;
+          animation-name: in-bottom;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.in-left .w{
+  -webkit-animation-name: in-left;
+          animation-name: in-left;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.out {
+}
+
+.out-top .w{
+  -webkit-animation-name: out-top;
+          animation-name: out-top;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.out-right .w{
+  -webkit-animation-name: out-right;
+          animation-name: out-right;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.out-bottom .w{
+  -webkit-animation-name: out-bottom;
+          animation-name: out-bottom;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.out-left .w{
+  -webkit-animation-name: out-left;
+          animation-name: out-left;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+@-webkit-keyframes in-top {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(-1,0,0,90deg);transform: rotate3d(-1,0,0,90deg)}
+}
+
+@keyframes in-top {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(-1,0,0,90deg);transform: rotate3d(-1,0,0,90deg)}
+}
+@-webkit-keyframes out-top {
+  from {-webkit-transform: rotate3d(-1,0,0,90deg);transform: rotate3d(-1,0,0,90deg)}
+  to   {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+@keyframes out-top {
+  from {-webkit-transform: rotate3d(-1,0,0,90deg);transform: rotate3d(-1,0,0,90deg)}
+  to   {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+
+@-webkit-keyframes in-right {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(0,-1,0,90deg);transform: rotate3d(0,-1,0,90deg)}
+}
+
+@keyframes in-right {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(0,-1,0,90deg);transform: rotate3d(0,-1,0,90deg)}
+}
+@-webkit-keyframes out-right {
+  from  {-webkit-transform: rotate3d(0,-1,0,90deg);transform: rotate3d(0,-1,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+@keyframes out-right {
+  from  {-webkit-transform: rotate3d(0,-1,0,90deg);transform: rotate3d(0,-1,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+
+@-webkit-keyframes in-bottom {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(1,0,0,90deg);transform: rotate3d(1,0,0,90deg)}
+}
+
+@keyframes in-bottom {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(1,0,0,90deg);transform: rotate3d(1,0,0,90deg)}
+}
+@-webkit-keyframes out-bottom {
+  from  {-webkit-transform: rotate3d(1,0,0,90deg);transform: rotate3d(1,0,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+@keyframes out-bottom {
+  from  {-webkit-transform: rotate3d(1,0,0,90deg);transform: rotate3d(1,0,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+
+@-webkit-keyframes in-left {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(0,1,0,90deg);transform: rotate3d(0,1,0,90deg)}
+}
+
+@keyframes in-left {
+  from  {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+  to    {-webkit-transform: rotate3d(0,1,0,90deg);transform: rotate3d(0,1,0,90deg)}
+}
+@-webkit-keyframes out-left {
+  from  {-webkit-transform: rotate3d(0,1,0,90deg);transform: rotate3d(0,1,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+@keyframes out-left {
+  from  {-webkit-transform: rotate3d(0,1,0,90deg);transform: rotate3d(0,1,0,90deg)}
+  to    {-webkit-transform: rotate3d(0,0,0,0deg);transform: rotate3d(0,0,0,0deg)}
+}
+
+/* ======= aesthetics ======= */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 48px 24px;
+  padding: 3rem 1.5rem;
+  font-size: 16px;
+  font-family: 'Sahitya', serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  padding-bottom: 48px;
+  padding-bottom: 3rem;
+}
+
+h1 {
+  font-size: 2em
+}
+
+h1 sup{
+  font-size: .7em;
+  color: #00BCD4;
+}
+
+ul {
+  font-size: 0;
+  padding: 0;
+  max-width: 760px;
+  margin: 0 auto;
+  list-style: none
+}
+
+ul::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+footer {
+  font-size: 12px;
+  font-size: .75rem;
+  font-family: monospace;
+  padding-top: 48px;
+  padding-top: 3rem
+}
+
+footer a{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+footer svg{
+  fill: currentColor;
+}
+
+:link,:visited {
+  color: #00BCD4;
+}
+
+.-center {
+  text-align: center;
+}
+
+.-neutral-mid {
+  color: rgb(153, 153, 153);
+}

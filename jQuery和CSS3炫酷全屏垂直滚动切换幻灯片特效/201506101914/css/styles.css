@@ -1,0 +1,532 @@
+@font-face {
+  src: url(../fonts/PFDinTextCompPro-Medium.ttf);
+  font-family: pfd-medium;
+}
+@font-face {
+  src: url(../fonts/PT_Sans-Web-Regular.ttf);
+  font-family: ptsans-regular;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.sidebar-hover,
+.sidebar-real,
+.left-part,
+.content,
+.bg-part {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+/* END OF GLOBAL STYLES */
+/* SIDEBAR HOVER STYLES */
+.sidebar-hover {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  width: 15rem;
+}
+.sidebar-hover:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+}
+.sidebar-hover:hover ~ .sidebar-real {
+  max-width: 30rem;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-1 {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-2 {
+  -webkit-transition-delay: 0.55s;
+          transition-delay: 0.55s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-3 {
+  -webkit-transition-delay: 0.7s;
+          transition-delay: 0.7s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-4 {
+  -webkit-transition-delay: 0.85s;
+          transition-delay: 0.85s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-5 {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-6 {
+  -webkit-transition-delay: 1.15s;
+          transition-delay: 1.15s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-7 {
+  -webkit-transition-delay: 1.3s;
+          transition-delay: 1.3s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-8 {
+  -webkit-transition-delay: 1.45s;
+          transition-delay: 1.45s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-9 {
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+}
+.sidebar-hover:hover ~ .sidebar-real .nav-elem.nav-10 {
+  -webkit-transition-delay: 1.75s;
+          transition-delay: 1.75s;
+}
+.sidebar-hover:hover ~ .sections .content {
+  -webkit-transform: translateX(30rem);
+      -ms-transform: translateX(30rem);
+          transform: translateX(30rem);
+}
+
+.pagination {
+  z-index: 500;
+  position: absolute;
+  font-size: 1.6rem;
+  font-family: ptsans-regular;
+  top: 26.7rem;
+  left: 0rem;
+  width: 15rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  /*
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.2rem;
+    height: 4rem;
+    width: 0.5rem;
+    border-radius: 5px;
+    background: rgba(255,255,255, 0.9);
+  }*/
+}
+.pagination:after {
+  content: ">";
+  color: #fff;
+  position: absolute;
+  display: block;
+  right: 3rem;
+  top: 0.5rem;
+  -webkit-animation: navArrowMove 1s infinite;
+          animation: navArrowMove 1s infinite;
+}
+.pagination .page {
+  color: #fff;
+}
+
+/* END OF SIDEBAR HOVER */
+/* REAL SIDEBAR (OFF-CANVAS MENU) STYLES */
+.sidebar-real {
+  z-index: 200;
+  left: 15rem;
+  width: 30rem;
+  height: 500rem;
+  max-width: 0;
+  background: #000;
+  overflow: hidden;
+  -webkit-transition: max-width 0.4s 0.2s, -webkit-transform 0.3s;
+          transition: max-width 0.4s 0.2s, transform 0.3s;
+  will-change: max-width, transform;
+}
+.sidebar-real:hover {
+  max-width: 30rem;
+}
+.sidebar-real:hover .nav-elem {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+.sidebar-real:hover .nav-elem.nav-1 {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.sidebar-real:hover .nav-elem.nav-2 {
+  -webkit-transition-delay: 0.55s;
+          transition-delay: 0.55s;
+}
+.sidebar-real:hover .nav-elem.nav-3 {
+  -webkit-transition-delay: 0.7s;
+          transition-delay: 0.7s;
+}
+.sidebar-real:hover .nav-elem.nav-4 {
+  -webkit-transition-delay: 0.85s;
+          transition-delay: 0.85s;
+}
+.sidebar-real:hover .nav-elem.nav-5 {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+.sidebar-real:hover .nav-elem.nav-6 {
+  -webkit-transition-delay: 1.15s;
+          transition-delay: 1.15s;
+}
+.sidebar-real:hover .nav-elem.nav-7 {
+  -webkit-transition-delay: 1.3s;
+          transition-delay: 1.3s;
+}
+.sidebar-real:hover .nav-elem.nav-8 {
+  -webkit-transition-delay: 1.45s;
+          transition-delay: 1.45s;
+}
+.sidebar-real:hover .nav-elem.nav-9 {
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+}
+.sidebar-real:hover .nav-elem.nav-10 {
+  -webkit-transition-delay: 1.75s;
+          transition-delay: 1.75s;
+}
+.sidebar-real:hover ~ .sections .content {
+  -webkit-transform: translateX(30rem);
+      -ms-transform: translateX(30rem);
+          transform: translateX(30rem);
+}
+
+.nav-elem {
+  position: relative;
+  width: 100%;
+  height: 18.81rem;
+  background-size: cover;
+  -webkit-transition: -webkit-transform 0.4s 0.3s;
+          transition: transform 0.4s 0.3s;
+  will-change: transform;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  cursor: pointer;
+}
+.nav-elem:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-transition: background 0.2s;
+          transition: background 0.2s;
+  will-change: background;
+}
+.nav-elem:hover:after {
+  background: transparent;
+}
+.nav-elem.nav-1 {
+  background-image: url(http://i.imgur.com/U2c2g71.jpg);
+}
+.nav-elem.nav-2 {
+  background-image: url(http://i.imgur.com/FpEKB1p.jpg);
+}
+.nav-elem.nav-3 {
+  background-image: url(http://i.imgur.com/p8nEIiw.jpg);
+}
+.nav-elem.nav-4 {
+  background-image: url(http://i.imgur.com/Kp5mlA4.jpg);
+}
+.nav-elem.nav-5 {
+  background-image: url(http://i.imgur.com/pyGAjrX.jpg);
+}
+.nav-elem.nav-6 {
+  background-image: url(http://i.imgur.com/kDGZtoU.jpg);
+}
+.nav-elem.nav-7 {
+  background-image: url(http://i.imgur.com/JWqDSqx.jpg);
+}
+.nav-elem.nav-8 {
+  background-image: url(http://i.imgur.com/BxLZ53E.jpg);
+}
+
+/* REAL SIDEBAR STYLES END */
+/* SECTIONS STYLES */
+.sections {
+  height: 100%;
+  -webkit-transition: margin 0.5s;
+          transition: margin 0.5s;
+  will-change: margin;
+}
+
+.section {
+  position: relative;
+  height: 100%;
+}
+.section.section-1 .left-part {
+  background-image: url("http://i.imgur.com/c07asTW.jpg");
+}
+.section.section-1 .bg-part {
+  background-image: url("http://i.imgur.com/c07asTW.jpg");
+}
+.section.section-2 .left-part {
+  background-image: url("http://i.imgur.com/A9Ivcsj.jpg");
+}
+.section.section-2 .bg-part {
+  background-image: url("http://i.imgur.com/A9Ivcsj.jpg");
+}
+.section.section-3 .left-part {
+  background-image: url("http://i.imgur.com/PbV1Grl.jpg");
+}
+.section.section-3 .bg-part {
+  background-image: url("http://i.imgur.com/PbV1Grl.jpg");
+}
+.section.section-4 .left-part {
+  background-image: url("http://i.imgur.com/Pg6nUAn.jpg");
+}
+.section.section-4 .bg-part {
+  background-image: url("http://i.imgur.com/Pg6nUAn.jpg");
+}
+.section.section-5 .left-part {
+  background-image: url("http://i.imgur.com/VWYl1EC.jpg");
+}
+.section.section-5 .bg-part {
+  background-image: url("http://i.imgur.com/VWYl1EC.jpg");
+}
+.section.section-6 .left-part {
+  background-image: url("http://i.imgur.com/ga3BiDw.jpg");
+}
+.section.section-6 .bg-part {
+  background-image: url("http://i.imgur.com/ga3BiDw.jpg");
+}
+.section.section-7 .left-part {
+  background-image: url("http://i.imgur.com/Mei5S7f.jpg");
+}
+.section.section-7 .bg-part {
+  background-image: url("http://i.imgur.com/Mei5S7f.jpg");
+}
+.section.section-8 .left-part {
+  background-image: url("http://i.imgur.com/jAY4044.jpg");
+}
+.section.section-8 .bg-part {
+  background-image: url("http://i.imgur.com/jAY4044.jpg");
+}
+
+.left-part,
+.bg-part {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  -webkit-transition: margin 0.8s;
+          transition: margin 0.8s;
+  will-change: margin;
+}
+
+.left-part {
+  z-index: 20;
+  left: 0;
+  width: 15rem;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+.content {
+  left: 15rem;
+  width: calc(100% - 15rem);
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.4s 0.2s;
+          transition: transform 0.4s 0.2s;
+  will-change: transform;
+}
+
+.section-heading,
+.additional-text {
+  display: block;
+  position: absolute;
+  z-index: 700;
+  color: #fff;
+  line-height: 1;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s, color 0.3s;
+          transition: transform 0.4s, opacity 0.1s, color 0.3s;
+  will-change: transform, opacity;
+}
+.section-heading.not-visible,
+.additional-text.not-visible {
+  -webkit-transform: translateY(-10rem);
+      -ms-transform: translateY(-10rem);
+          transform: translateY(-10rem);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.2s 0.2s;
+          transition: transform 0.4s, opacity 0.2s 0.2s;
+}
+
+.section-heading {
+  top: 26.7rem;
+  left: 0;
+  font-size: 6rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: pfd-medium;
+  padding: 0 2rem 4rem;
+  background: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.section-heading:hover {
+  color: rgba(255, 89, 89, 0.7);
+}
+
+.additional-text {
+  top: 33.2rem;
+  left: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: ptsans-regular;
+}
+
+.bg-part {
+  width: 12.5%;
+}
+.bg-part:nth-child(4) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.bg-part:nth-child(3), .bg-part:nth-child(5) {
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+.bg-part:nth-child(2), .bg-part:nth-child(6) {
+  -webkit-transition-delay: 0.8s;
+          transition-delay: 0.8s;
+}
+.bg-part:nth-child(1), .bg-part:nth-child(7) {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+.bg-part:nth-child(8) {
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+}
+.bg-part:nth-child(1) {
+  left: 0%;
+}
+.bg-part:nth-child(2) {
+  left: 12.5%;
+}
+.bg-part:nth-child(3) {
+  left: 25%;
+}
+.bg-part:nth-child(4) {
+  left: 37.5%;
+}
+.bg-part:nth-child(5) {
+  left: 50%;
+}
+.bg-part:nth-child(6) {
+  left: 62.5%;
+}
+.bg-part:nth-child(7) {
+  left: 75%;
+}
+.bg-part:nth-child(8) {
+  left: 87.5%;
+}
+
+.scroll-down {
+  position: fixed;
+  z-index: 500;
+  -webkit-transition: -webkit-transform 0.5s 1.5s, opacity 0.3s 1.7s, z-index 0.5s 1.5s;
+          transition: transform 0.5s 1.5s, opacity 0.3s 1.7s, z-index 0.5s 1.5s;
+  font-size: 3rem;
+  font-family: ptsans-regular;
+  text-transform: uppercase;
+  bottom: 8rem;
+  left: calc(50% - 15rem);
+  color: #fff;
+  width: 30rem;
+  text-align: center;
+}
+.scroll-down.removed {
+  -webkit-transform: translateY(-20rem);
+      -ms-transform: translateY(-20rem);
+          transform: translateY(-20rem);
+  opacity: 0;
+  z-index: -10;
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.3s 0.2s, z-index 0.5s;
+          transition: transform 0.5s, opacity 0.3s 0.2s, z-index 0.5s;
+}
+.scroll-down:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -3rem;
+  left: calc(50% - 1.5rem);
+  width: 3rem;
+  height: 3rem;
+  border: 0.5rem solid #fff;
+  border-left: none;
+  border-top: none;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-animation: arrowMove 1.2s infinite;
+          animation: arrowMove 1.2s infinite;
+}
+
+@-webkit-keyframes arrowMove {
+  to {
+    -webkit-transform: rotate(45deg) translateY(2rem) translateX(2rem);
+            transform: rotate(45deg) translateY(2rem) translateX(2rem);
+    opacity: 0;
+  }
+}
+
+@keyframes arrowMove {
+  to {
+    -webkit-transform: rotate(45deg) translateY(2rem) translateX(2rem);
+            transform: rotate(45deg) translateY(2rem) translateX(2rem);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes navArrowMove {
+  to {
+    -webkit-transform: translateX(2rem);
+            transform: translateX(2rem);
+    opacity: 0;
+  }
+}
+@keyframes navArrowMove {
+  to {
+    -webkit-transform: translateX(2rem);
+            transform: translateX(2rem);
+    opacity: 0;
+  }
+}
+.codepen-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.check-out a {
+  color: #ffaaaa;
+}

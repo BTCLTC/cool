@@ -1,0 +1,65 @@
+Date.js 是一个开源的JavaScript库，用来解析、格式化和处理日期数据，支持多种语言的日期格式处理。
+
+第一步、使用datejs
+在页面中引用date.js如：
+
+1
+<script type="text/javascript" src="date.js"></script>
+Datejs 已经被翻译成150个国家的语言，你可以使用任何一种你想使用的语言。
+
+例如：
+
+en-US [English (United States)]
+
+1
+<script type="text/javascript" src="date.js"></script>
+en-US [English (United States)]
+
+1
+<script type="text/javascript" src="date-de-DE.js"></script>
+中文
+
+1
+<script type=“text/javascript” src="date-zh-CN.js"></script>
+德语 [German (Germany)]
+
+1
+<script type=“text/javascript” src="date-de-DE.js"></script>
+法语 [French (France)]
+
+1
+<script type="text/javascript" src="date-fr-FR.js"></script>
+第二步、开始测试
+Datejs库包含有丰富的时间和日期函数，一旦你的页面中引用了date.js后你将可以进行测试。
+
+我推荐大家使用FireFox下的FireBug 进行学习和调试。
+
+第三步、让我们开始吧
+在深入Datejs库之前，让我们看看一些延伸功能吧。探索自然语言的语法是一个良好的开端。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+// 获取今天的日期
+Date.today();
+  
+// 今天的日期再加上五天后
+Date.today().add(5).days();
+// 本周的星期k
+Date.friday();
+// 今年的三月
+Date.march();
+// 今天是星期五吗?
+Date.today().is().friday();  // true|false
+// 今天是那一天?
+Date.today().getDayName();

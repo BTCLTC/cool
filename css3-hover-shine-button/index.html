@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>纯CSS3鼠标滑过按钮动画过滤特效 - 站长素材</title>
+</head>
+  <style type="text/css">
+    html,body,.wrapper{
+		height:100%;}
+	
+	body{
+		background:#28B2CB;
+		background-size:cover;
+		font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+    .wrapper{
+		/*background-color:white;*/
+		width:100%;
+		/*opacity:0.5;*/
+	}
+	.holder {
+  width: 100%;
+}
+
+a.animBtn:link, a.animBtn:visited {
+  position: relative;
+  display: block;
+  width: 180px;
+  margin: 30px auto 0;
+  padding: 14px 15px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  /*text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);*/
+  text-shadow:0 1px 1px rgba(0,0,0,0.2);
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+a.animBtn:link:after, a.animBtn:visited:after {
+  content: "";
+  position: absolute;
+  background: none repeat scroll 0 0 #fff;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  z-index: -1;
+  -webkit-transition: all .3s ease 0s;
+  -moz-transition: all .3s ease 0s;
+  -o-transition: all .3s ease 0s;
+  transition: all .3s ease 0s;
+}
+a.animBtn:link:hover, a.animBtn:visited:hover {
+  color: #333;
+  text-shadow: none;
+}
+a.animBtn:link:hover:after, a.animBtn:visited:hover:after {
+  height: 420%;
+}
+
+a.animBtn.themeA:after {
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+a.animBtn.themeB:after {
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+a.animBtn.themeC:after {
+  opacity: .5;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+a.animBtn.themeC:hover:after {
+  height: 140%;
+  opacity: 1;
+}
+a.animBtn.themeD:after {
+  width: 0%;
+  border-radius: 50%;
+  opacity: .5;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+a.animBtn.themeD:hover:after {
+  height: 450%;
+  width: 110%;
+  opacity: 1;
+}
+  </style>
+
+<body>
+
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<div class="wrapper">
+  <p class="holder">
+    <a href="#" class="animBtn themeA">Discover More A</a>
+    <a href="#" class="animBtn themeB">Discover More B</a>
+    <a href="#" class="animBtn themeC">Discover More C</a>
+    <a href="#" class="animBtn themeD">Discover More D</a>
+  </p>
+</div>
+
+
+
+</body>
+</html>
+

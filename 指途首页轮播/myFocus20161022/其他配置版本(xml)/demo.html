@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus v2.0</title>
+<script type="text/javascript" src="../js/myfocus-2.0.4.min.js"></script>
+<style type="text/css">
+body { background:#fff; padding:20px;}
+h2{height:42px; line-height:42px; background:#f1f1f1; margin-bottom:20px; font-size:12px; color:#666; font-weight:normal;}
+#myFocus{ width:560px; height:300px;}
+</style>
+<script type="text/javascript">
+//设置
+myFocus.set({
+	id:'myFocus',//ID
+	pattern:'mF_fancy',//风格
+	xmlFile:'xml/myfocus.xml'//配置的xml文件路径
+});
+</script>
+</head>
+<body>
+<h2>提示：放到服务器才能看到效果，因为本地测试引入xml文件时浏览器会认为是跨域操作。</h2>
+<div id="myFocus"><!--焦点图盒子-->
+	<!--这里是xml配置文件的内容-->
+</div>
+</body>
+</html>

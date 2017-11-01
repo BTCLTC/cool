@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus tab</title>
+<script type="text/javascript" src="../../js/myfocus-2.0.4.min.js"></script>
+<script type="text/javascript">
+myFocus.pattern.extend({//*********************tab******************
+	'mF_sd_tab':function(settings,$){
+		$tab=$(settings);
+		$titList=$tab.find('>.title>li');
+		$contList=$tab.find('>.content>li');
+		$tab.play(function(i){
+			$titList[i].className='';
+			$contList[i].style.display='none';
+		},function(i){
+			$titList[i].className='current';
+			$contList[i].style.display='block';	
+		});
+		$tab.bindControl($titList);
+	}
+});
+</script>
+<style type="text/css">
+body { background:#fff; padding:20px; font:12px/20px Verdana, Geneva, sans-serif; }
+/*=========mF_sd_tab========*/
+.mF_sd_tab *{ margin:0; padding:0; list-style:none;}
+.mF_sd_tab ul.title{ height:31px; line-height:30px;}
+.mF_sd_tab ul.title li{float:left; padding:0 20px;margin-right:20px; cursor:pointer; border:1px solid #ccc; background:#f1f1f1;}
+.mF_sd_tab ul.title li.current{border-bottom:1px solid #fff; background:#fff;}
+.mF_sd_tab ul.content li{border:1px solid #ccc; padding:20px; display:none;}
+</style>
+<script type="text/javascript">
+//设置实例
+myFocus.set({
+	id:'tab',
+	pattern:'mF_sd_tab',
+	auto:false
+});
+</script>
+</head>
+<body>
+<h2>myFcous tab(基本tab风格，支持自动切换、嵌套等)</h2>
+
+<div id="tab" class="mF_sd_tab">
+  <ul class="title">
+  	<li>title1</li>
+    <li>title2</li>
+    <li>title3</li>
+  </ul>
+  <ul class="content">
+  	<li>cont1</li>
+    <li>cont2<br />cont2<br />cont2<br />cont2</li>
+    <li>cont3</li>
+  </ul>
+</div>
+
+</body>
+</html>

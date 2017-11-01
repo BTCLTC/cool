@@ -1,0 +1,283 @@
+<html>
+<head>
+    <meta charset="utf-8">	
+    <style type="text/css">
+        html,body {
+			padding:0;
+			margin:0;
+		}
+		canvas {
+			background:#000;
+			width:100vw;
+			height:100vh;
+		}
+    </style>
+    	
+</head>
+<body>
+    <canvas id="canvas">
+</canvas>
+</body>
+<script>
+        !function(window) {
+            Math.Tau = Math.PI * 2;
+            var request = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+            function(cb) {
+                return setTimeout(cb, 40)
+            };
+            var Teamkill = function() {
+                var text = '318营地管理公司';
+                var font = '"Helvetica Neue","Microsoft YaHei UI Light",sans-serif';
+                var fontSize = 100;
+                var compositionAtop = 'source-atop';
+                var compositionNormal = 'source-over';
+                var canvas = document.getElementById('canvas');
+                var engine = canvas.getContext('2d');
+                var canvasData = null;
+                var patternCanvas = document.createElement('canvas');
+                var patternEngine = patternCanvas.getContext('2d');
+                var pixels = [];
+                var pixelStops = [];
+                var moveSpeed = 2;
+                var speedTicker = 1;
+                var targetLook = 1;
+                var targetLookReverse = targetLook * 2;
+                var drawMode = false;
+                var speed = 1;
+                var speedX = 1;
+                var speedY = 1;
+                var sensitivity = 3;
+                //pixelcount:  window.innerWidth * window.innerHeight / (sensitivity ^ 2)
+                var pixelMultiplier = 1;
+                var pixelSize = 2;
+                //zurzeit wird dies ignoriert, dass pixel manuel geschrieben werden (performancegr��nde)
+                var highlightTickerStart = 0;
+                var highlightTicker = highlightTickerStart;
+                var highlightTickerMax = 60 * 3;
+                var color = 'rgb(100, 100, 100)';
+                //#FFD700
+                var gradient = null;
+                var changeTime = 8000;
+                var textBound = {
+                    left: 0,
+                    top: 0,
+                    width: 0,
+                    height: 0
+                };
+                this.run = function() {
+                    setTimeout(changeDrawMode, 3000);
+                    canvas.setAttribute('width', window.innerWidth);
+                    canvas.setAttribute('height', window.innerHeight);
+                    patternCanvas.setAttribute('width', window.innerWidth);
+                    patternCanvas.setAttribute('height', window.innerHeight);
+                    patternEngine.fillStyle = '#fff';
+                    patternEngine.font = 'italic bold '.concat(fontSize).concat('px ').concat(font);
+                    gradient = engine.createLinearGradient(0, 0, window.innerWidth, 0);
+                    for (var i = 0,
+                    max = 10,
+                    color = null; i < max; i++) {
+                        color = 'hsl('.concat(360 / max * i).concat(', 50%, 50%)');
+                        gradient.addColorStop(i / max || 0, color);
+                    }
+                    setup();
+                    tick();
+                };
+                var setup = function() {
+                    prepareText();
+                    generatePixels();
+                };
+                var changeDrawMode = function() {
+                    speedTicker = 1;
+                    drawMode = !drawMode;
+                    if (drawMode) {
+                        highlightTicker = highlightTickerStart;
+                        for (var i = 0; i < pixels.length; i++) {
+                            pixels[i].moveX = 0;
+                            pixels[i].moveY = 0;
+                        }
+                    }
+                };
+                var prepareText = function() {
+                    pixelStops = [];
+                    var m = patternEngine.measureText(text);
+                    patternEngine.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    patternEngine.fillText(text, window.innerWidth / 2 - m.width / 2, window.innerHeight / 2 - fontSize / 2);
+                    var imgData = patternEngine.getImageData(0, 0, window.innerWidth, window.innerHeight);
+                    textBound.left = window.innerWidth / 2 - m.width / 2;
+                    textBound.top = window.innerHeight / 2 - fontSize / 2 - fontSize;
+                    textBound.width = m.width;
+                    textBound.height = fontSize;
+                    for (var y = 0; y < window.innerHeight; y += sensitivity) {
+                        for (var x = 0; x < window.innerWidth; x += sensitivity) {
+                            if (imgData.data[4 * (y * window.innerWidth + x)] != 0) {
+                                pixelStops.push({
+                                    x: x,
+                                    y: y,
+                                    color: 'hsl(' + (360 / textBound.width * x - textBound.left) + ', 50%, 50%)'
+                                });
+                            }
+                        }
+                    }
+                };
+                var generatePixels = function() {
+                    pixels = [];
+                    for (var i = 0,
+                    max = Math.ceil(pixelStops.length * pixelMultiplier); i < max; i++) {
+                        var speed = Math.random() * 10;
+                        var split = Math.random();
+                        var speedX = (0.5 - Math.random()) < 0 ? split * speed: 0 - split * speed;
+                        var speedY = (0.5 - Math.random()) < 0 ? (1 - split) * speed: 0 - (1 - split) * speed;
+                        pixels.push({
+                            x: Math.random() * window.innerWidth,
+                            y: Math.random() * window.innerHeight,
+                            dirX: speedX,
+                            dirY: speedY,
+                            split: split,
+                            oldX: 0,
+                            oldY: 0,
+                            moveX: 0,
+                            moveY: 0
+                        });
+                    }
+                };
+                var tick = function() {
+                    engine.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    if (drawMode) {
+                        speedTicker += 0.01;
+                        speed = moveSpeed + speedTicker;
+                        speedX = window.innerWidth / window.innerHeight * speed;
+                        speedY = window.innerWidth / window.innerHeight * speed;
+                    }
+                    engine.fillStyle = color;
+                    var moving = false;
+                    for (var i = 0; i < pixels.length; i++) {
+                        if (i < pixelStops.length) {
+                            engine.fillStyle = pixelStops[i].color;
+                            //engine.fillStyle = 'hsl(150, 50%, 50%)';
+                        } else {
+                            engine.fillStyle = color;
+                        }
+                        //engine.fillStyle = 'hsl(' + (360 / window.innerWidth * pixels[i].x) + ', 50%, 50%)';
+                        if (drawMode) {
+                            if (i < pixelStops.length) {
+                                if (drawText(i)) {
+                                    moving = true;
+                                }
+                            } else {
+                                drawNormal(pixels[i]);
+                            }
+                        } else {
+                            drawNormal(pixels[i]);
+                        }
+                    }
+                    if (drawMode && !moving) {
+                        drawHighlight();
+                    }
+                    request(tick);
+                };
+                var drawHighlight = function() {
+                    highlightTicker++;
+                    if (highlightTicker > 0 && highlightTicker <= highlightTickerMax) {
+                        engine.globalCompositeOperation = compositionAtop;
+                        engine.fillStyle = '#fff';
+                        var w = 10;
+                        var left = textBound.left - 20 + ((textBound.width + 40) / highlightTickerMax * highlightTicker);
+                        engine.fillRect(left, textBound.top - 20, w, textBound.height + 40);
+                        engine.fillRect(left + w + 5, textBound.top - 20, 5, textBound.height + 40);
+                        engine.globalCompositeOperation = compositionNormal;
+                        if (highlightTicker == highlightTickerMax) {
+                            setTimeout(changeDrawMode, 1000);
+                            setTimeout(changeDrawMode, changeTime);
+                        }
+                    }
+                };
+                var drawText = function(pixelIterator) {
+                    arc(pixels[pixelIterator].x, pixels[pixelIterator].y);
+                    engine.fill();
+                    return textMoving(pixelIterator);
+                };
+                var range = function(pixel, target, dim) {
+                    return Math.abs(pixel[dim] - target[dim]);
+                };
+                var textMoving = function(pixelIterator) {
+                    var moving = false;
+                    var target = pixelStops[pixelIterator];
+                    var pixel = pixels[pixelIterator];
+                    //redundant, in loop klatschen
+                    if (target.x == pixel.x) {
+                        //do nothing
+                    } else if (range(pixel, target, 'x') < targetLookReverse) {
+                        pixel.x = target.x;
+                    } else {
+                        if (pixel.x > target.x) {
+                            if (pixel.moveX > 0) {
+                                pixel.moveX -= targetLookReverse;
+                            } else {
+                                pixel.moveX -= targetLook;
+                            }
+                        } else {
+                            if (pixel.moveX < 0) {
+                                pixel.moveX += targetLookReverse;
+                            } else {
+                                pixel.moveX += targetLook;
+                            }
+                        }
+                        moving = true;
+                        pixel.x += pixel.moveX;
+                    }
+                    if (target.y == pixel.y) {
+                        //do nothing
+                    } else if (range(pixel, target, 'y') < targetLookReverse) {
+                        pixel.y = target.y;
+                    } else {
+                        if (pixel.y > target.y) {
+                            if (pixel.moveY > 0) {
+                                pixel.moveY -= targetLookReverse;
+                            } else {
+                                pixel.moveY -= targetLook;
+                            }
+                        } else {
+                            if (pixel.moveY < 0) {
+                                pixel.moveY += targetLookReverse;
+                            } else {
+                                pixel.moveY += targetLook;
+                            }
+                        }
+                        moving = true;
+                        pixel.y += pixel.moveY;
+                    }
+                    return moving;
+                };
+                var drawNormal = function(pixel) {
+                    move(pixel);
+                    bound(pixel);
+                    arc(pixel.x, pixel.y);
+                    engine.fill();
+                };
+                var arc = function(x, y) {
+                    x = x | 0;
+                    y = y | 0;
+                    engine.fillRect(x, y, pixelSize, pixelSize);
+                };
+                var move = function(pixel) {
+                    pixel.x += pixel.dirX;
+                    pixel.y += pixel.dirY;
+                };
+                var bound = function(pixel) {
+                    if (pixel.x < 0) {
+                        pixel.dirX = Math.abs(pixel.dirX);
+                    } else if (pixel.x > window.innerWidth) {
+                        pixel.dirX = 0 - pixel.dirX;
+                    }
+                    if (pixel.y < 0) {
+                        pixel.dirY = Math.abs(pixel.dirY);
+                    } else if (pixel.y > window.innerHeight) {
+                        pixel.dirY = 0 - pixel.dirY;
+                    }
+                };
+            };
+            var tk = new Teamkill();
+            tk.run();
+        } (window);
+</script>
+</html>

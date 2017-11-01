@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+@import url('reset.css');
+html,body
+{
+	margin:0;
+	padding:0;
+	font-family: Arial,sans-serif;
+	font-size:14px;
+	line-height:1.5em;
+}
+.header
+{
+	border-top:4px solid #c00;
+}
+.header-inner
+{
+	width:1100px;
+	margin:0 auto;
+}
+.header li
+{
+	float:left;
+	margin-right:10px;
+}
+.header li a
+{
+	display:block;
+	height:49px;
+	border-bottom:2px solid #fff;
+	line-height:49px;
+	padding:0 20px;
+	color:#c00;
+}
+.logo
+{
+	background-color:#c00;
+	color:#fff;
+	float:left;
+	font-size:24px;
+	padding:15px 20px;
+	text-decoration:none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.1);
+	margin-right:20px;
+}
+.header li a.active
+{
+	border-bottom:2px solid #c00;
+}
+.page
+{
+	width:1100px;
+	margin:0 auto;
+	padding:20px 0;
+}
+.box
+{
+	float:left;
+	padding:1px;
+	box-shadow:0 0 2px rgba(0,0,0,.1);
+	margin:20px 40px 20px 0;
+}
+.title
+{
+	border-bottom:3px solid #ddd;
+	line-height:2em;
+	clear:both;
+}
+.title h3
+{
+	float:left;
+	margin-bottom:-3px;
+	border-bottom:3px solid #c00;
+	color:#c00;
+	padding:0 5px;
+}
+pre
+{
+	background: none repeat scroll 0 0 #f5f5f5;
+    border-left: 2px solid #c00;
+    display: block;
+   	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 150%;
+    margin: 30px 0 18px 2px;
+    overflow: auto;
+    padding: 8px 0 8px 16px;
+    white-space: pre;
+	letter-spacing:.6px;
+	text-shadow:1px 1px 1px #fff;
+}
+table
+{
+	border-collapse:collapse;
+}
+th,td
+{
+	padding:5px 15px;
+}
+.a_slow
+{
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-ms-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 1.6s;
+	-moz-animation-duration: 1.6s;
+	-ms-animation-duration: 1.6s;
+	-o-animation-duration: 1.6s;
+	animation-duration: 1.6s;
+}
+.info
+{
+	float:left;
+	padding:30px;
+}
+.thumb-list
+{
+	float:left;
+}
+.thumb-list li
+{
+	padding:1px;
+	border:1px solid #ddd;
+	float:left;
+	margin-right:20px;
+	cursor:pointer;
+}
+.thumb-list li img
+{
+	width:60px;
+	float:left;
+}

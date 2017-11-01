@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漂亮的JavaScript右下角信息提示插件Notyf DEMO演示</title>
+
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/zzsc.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="dist/notyf.min.css">
+<style type="text/css">
+	html, body {
+	  background-color: #2C2B41;
+	  -webkit-font-smoothing: antialiased;
+	  -webkit-overflow-scrolling: touch;
+	  width: 100%;
+	  height: 100%;
+	  margin: 0;
+	  font-weight: 500;
+	}
+
+	.hero {
+	  height: 100%;
+	}
+	.hero:before {
+	  content: "";
+	  height: 100%;
+	  margin-right: -0.5em;
+	  vertical-align: middle;
+	  display: inline-block;
+	}
+	.hero h1 {
+	  color: white;
+	  font-size: 7em;
+	  margin-top: 0;
+	  margin-bottom: 25px;
+	}
+	.hero h2 {
+	  color: white;
+	  font-weight: 400;
+	  line-height: 1.7em;
+	}
+	.hero .wrapper {
+	  display: inline-block;
+	  vertical-align: middle;
+	  width: 100%;
+	  text-align: center;
+	}
+	.hero .buttons {
+	  margin-top: 45px;
+	}
+	.hero button {
+	  cursor: pointer;
+	  -webkit-appearance: none;
+		 -moz-appearance: none;
+			  appearance: none;
+	  background: none;
+	  border: 1px solid white;
+	  color: white;
+	  width: 90px;
+	  outline: none;
+	  height: 46px;
+	  width: 170px;
+	  font-size: 1.1em;
+	  margin-left: 10px;
+	  margin-right: 10px;
+	  border-radius: 2px;
+	}
+	.hero button:hover {
+	  background: white;
+	  color: #2C2B41;
+	}
+
+	@media only screen and (max-width: 768px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 4em;
+	  }
+	  .hero h2 {
+		font-size: 1em;
+	  }
+	  .hero button {
+		margin-bottom: 15px;
+	  }
+	}
+	/* Small smartphones */
+	@media only screen and (max-width: 360px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 4em;
+	  }
+	  .hero h2 {
+		font-size: 1em;
+	  }
+	  .hero .buttons {
+		margin-left: -32px;
+		margin-right: -40px;
+	  }
+	  .hero button {
+		font-size: 0.9em;
+		margin-left: 3px;
+		margin-right: 3px;
+		height: 42px;
+		width: 130px;
+	  }
+	}
+	/* iPhone 6+ ----------- */
+	@media only screen and (min-width: 375px) and (max-width: 736px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 5em;
+	  }
+	  .hero h2 {
+		font-size: 1.2em;
+	  }
+	  .hero button {
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 145px;
+		font-size: 1em;
+	  }
+	}
+</style>
+
+</head>
+<body>
+<div class="zzsc-container">
+	<div class="hero">
+		  <div class="wrapper">
+			<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+			<div class="buttons">
+			  <button type="button" name="button" id="success-btn">显示成功</button>
+			  <button type="button" name="button" id="alert-btn">显示警报</button>
+			</div>
+		  </div>
+	</div>
+</div>
+
+<script src="dist/notyf.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	(function(){
+	  var alertMessages = [
+		"I'm an alert",
+		"It's me again :D",
+		"Yep, I can stack on top of previous alerts",
+		"Let's start over"
+	  ]
+	  var currentAlert = 0;
+	  var successMessages = [
+		"Hey there!",
+		"Success! Yuhu!!",
+		"It's me again :D",
+		"You can show me several times. I won't hide previous messages."
+	  ]
+	  var currentSuccess = 0;
+	  var notyf = new Notyf({delay:3000});
+	  document.addEventListener('DOMContentLoaded',function(){
+		document.getElementById('success-btn').addEventListener('click',function(){
+		  if(currentSuccess>3){
+			currentSuccess = 0;
+		  }
+		  notyf.confirm(successMessages[currentSuccess]);
+		  currentSuccess++;
+		});
+
+		document.getElementById('alert-btn').addEventListener('click',function(){
+		  if(currentAlert>3){
+			currentAlert = 0;
+		  }
+		  notyf.alert(alertMessages[currentAlert]);
+		  currentAlert++;
+		});
+	  });
+	})();
+</script>
+
+
+</body>
+</html>

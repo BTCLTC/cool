@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="../libs/modernizr-2.7.1-csstransforms3d-canvas-touch.js"></script>
+  <script src="../libs/megapix-image.js"></script>
+  <script src="http://www.jq22.com/jquery/three.min.js"></script>
+  <script src="../libs/Detector.js"></script>
+  <script src="../libs/CSS3DRenderer.js"></script>
+  <script src="../build/theta-viewer.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Sample of THETA Viewer</title>
+</head>
+<body>
+  <div id="theta-viewer"></div>
+  <script>
+/*global jQuery */
+(function ($) {
+    'use strict';
+    // #theta-viewerにパノラマ画像img/R0010035.JPGを表示
+    $("#theta-viewer").createThetaViewer('img/R0010035.JPG');
+}(jQuery));
+  </script>
+</body>
+</html>

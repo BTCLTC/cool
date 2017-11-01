@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="dist/typeit.min.css">
+<link rel="stylesheet" type="text/css" href="src/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery打字机文字特效DEMO演示</title>
+</head>
+<body>
+<a name="top"></a>
+<header>
+<h1 class="main-header">TypeIt</h1>
+<hr>
+<span class="typeit-box"></span>
+</header>
+<div class="container">
+<section>
+  <form id="TIInput">
+	<h2 class="ti-header">Try it!</h2>
+	<span class="info">Tweak the settings (optional), enter at least one string, and watch it go!</span>
+	<div class="options-holder">
+	  <div class="ti-option-box">
+		<label>Type Speed</labeL>
+		<input class="ti-option" type="number" id="iTypeSpeed" placeholder="typeSpeed">
+	  </div>
+	  <div class="ti-option-box">
+		<label>Life-Like</labeL>
+		<select class="ti-option" id="iLifeLike">
+		  <option value="true" selected>True</option>
+		  <option value="false">False</option>
+		</select>
+	  </div>
+	  <div class="ti-option-box">
+		<label>Show Cursor</labeL>
+		<select class="ti-option" id="iShowCursor">
+		  <option value="true" selected>True</option>
+		  <option value="false">False</option>
+		</select>
+	  </div>
+	  <div class="ti-option-box">
+		<label>Break Lines</labeL>
+		<select class="ti-option" id="iBreakLines">
+		  <option value="true" selected>True</option>
+		  <option value="false">False</option>
+		</select>
+	  </div>
+	  <div class="ti-option-box">
+		<label>Break Wait</labeL>
+		<input class="ti-option" type="number" id="iBreakWait" placeholder="breakWait">
+	  </div>
+	  <div class="ti-option-box">
+		<label>Delay Start</labeL>
+		<input class="ti-option" type="number" id="iDelayStart" placeholder="breakStart">
+	  </div>
+	  <a href="#options" class="settings-link">Wait, what do these settings actually do?</a>
+	  <textarea rows="3" id="stringTI" placeholder="Enter one or multiple strings per line here."></textarea>
+	</div>
+	<input type="submit" id="TISubmit" value="Type it!">
+  </form>
+  <div class="ti-output-box">
+	<div id="TIOutput">
+	  <span class="temp-text">output box</span>
+	</div>
+  </div>
+  <a id="scrollTo"></a>
+</section>
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<hr class="section-divider">
+<section>
+  <h2>Start Typing on Your Site!</h2>
+  <div class="left">
+	<h3>To get it going, just initialize with a string:</h3>
+	<button class="btn-example1">Rerun</button>
+  </div>
+  <div class="right">
+	<div class="code-block code-input">
+	  <small>Code</small>
+	  &lt;p class=&quot;example1&quot;&gt;&lt;/p&gt;
+	  <br>
+	  <br>
+	  $('.example1').typeIt({<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whatToType: "You've just initialized this bad boy.",<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;typeSpeed: 100<br>
+	  });
+	</div>
+	<div class="code-block code-output">
+	  <small>Output</small>
+	  <p class="example1"></p>
+	</div>
+  </div>
+</section>
+<hr class="section-divider">
+<section>
+  <div class="left">
+	<h3>Or, do it with data-typeit-* attributes:</h3>
+	<button class="btn-example2">Rerun</button>
+  </div>
+  <div class="right">
+	<div class="code-block code-input">
+	  <small>Code</small>
+	  &lt;p class=&quot;example2&quot; data-typeit-whattotype=&quot;This was defined with a data-typeit-* attribute.&quot; data-typeit-typeSpeed=&quot;100&quot;&gt;&lt;/p&gt;
+	  <br>
+	  <br>
+	  $('.example2').typeIt();
+	</div>
+	<div class="code-block code-output">
+	  <small>Output</small>
+	  <p class="example2" data-typeit-whattotype="This was defined with a data-typeit-* attribute." data-typeit-typeSpeed="100"></p>
+	</div>
+  </div>
+</section>
+<hr class="section-divider">
+<section>
+  <div class="left">
+	<h3>You can even use multiple strings that stack on each other:</h3>
+	<button class="btn-example3">Rerun</button>
+  </div>
+  <div class="right">
+	<div class="code-block code-input">
+	  <small>Code</small>
+	  &lt;p class=&quot;example3&quot;&gt;&lt;/p&gt;
+	  <br>
+	  <br>
+	  $('.example3').typeIt({<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whatToType: ["This is a string!", "And here's another one."],<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;typeSpeed: 100<br>
+	  });
+	</div>
+	<div class="code-block code-output">
+	  <small>Output</small>
+	  <p class="example3"></p>
+	</div>
+  </div>
+</section>
+<hr class="section-divider">
+<section>
+  <div class="left">
+	<h3>Or use multiple strings that delete &amp; replace each other:</h3>
+	<button class="btn-example4">Rerun</button>
+  </div>
+  <div class="right">
+	<div class="code-block code-input">
+	  <small>Code</small>
+	  &lt;p class=&quot;example4&quot;&gt;&lt;/p&gt;
+	  <br>
+	  <br>
+	  $('.example4').typeIt({<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whatToType: ["This is a great string.", "But here is a better one."],<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;typeSpeed: 100,<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;breakLines: false<br>
+	  });
+	</div>
+	<div class="code-block code-output">
+	  <small>Output</small>
+	  <p class="example4"></p>
+	</div>
+  </div>
+</section>
+<hr class="section-divider">
+<section>
+  <a name="options"></a>
+  <h3>There are plenty of settings to tweak how you desire:</h3>
+  <br>
+  <table>
+	<tr>
+	  <th>Option</th>
+	  <th>Description</th>
+	  <th>Default</th>
+	</tr>
+	<tr>
+	  <td>whatToType</td>
+	  <td>The string or strings you'd like to type.</td>
+	  <td>"You probably want to replace this string."</td>
+	</tr>
+	<tr>
+	  <td>typeSpeed</td>
+	  <td>The speed (milliseconds) at which you want to type.</td>
+	  <td>250</td>
+	</tr>
+	<tr>
+	  <td>lifeLike</td>
+	  <td>Choose whether the plugin types at a constant pace or irregular, lifelike pace.</td>
+	  <td>true</td>
+	</tr>
+	<tr>
+	  <td>showCursor</td>
+	  <td>Choose whether you want the blinking cursor to appear when typing.</td>
+	  <td>true</td>
+	</tr>
+	<tr>
+	  <td>breakLines</td>
+	  <td>Choose whether you want multiple strings to be printed on top of each other (breakLines = true), or if you want each string to be deleted and replaced by the next one (breakLines = false).</td>
+	  <td>true</td>
+	</tr>
+	<tr>
+	  <td>breakWait</td>
+	  <td>The amount of time between typing multiple strings.</td>
+	  <td>500</td>
+	</tr>
+	<tr>
+	  <td>delayStart</td>
+	  <td>The amount of time before the plugin begins typing after initializing.</td>
+	  <td>250</td>
+	</tr>
+  </table>
+</section>
+<br>
+<a href="#top">Back to Top</a>
+</div>
+
+<script src="src/jquery-2.1.4.min.js"></script>
+<script src="dist/typeit.min.js"></script>
+<script src="src/scripts.min.js"></script>
+
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

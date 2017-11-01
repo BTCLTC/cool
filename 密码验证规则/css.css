@@ -1,0 +1,160 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 16px Arial;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.field {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  width: 400px;
+  margin: 2em auto;
+  padding-top: 5px;
+  position: relative;
+  clear: both;
+  -webkit-transition: .12s ease-out;
+  transition: .12s ease-out;
+}
+.field label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+}
+.field .togglePass {
+  display: inline-block;
+  border: 0;
+  background: none;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0 auto;
+  background: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 24 24" height="24" width="24"><g transform="scale(0.015625 0.015625)"><path d="M512 192c-223.318 0-416.882 130.042-512 320 95.118 189.958 288.682 320 512 320 223.312 0 416.876-130.042 512-320-95.116-189.958-288.688-320-512-320zM764.45 361.704c60.162 38.374 111.142 89.774 149.434 150.296-38.292 60.522-89.274 111.922-149.436 150.296-75.594 48.218-162.89 73.704-252.448 73.704-89.56 0-176.858-25.486-252.452-73.704-60.158-38.372-111.138-89.772-149.432-150.296 38.292-60.524 89.274-111.924 149.434-150.296 3.918-2.5 7.876-4.922 11.86-7.3-9.96 27.328-15.41 56.822-15.41 87.596 0 141.382 114.616 256 256 256 141.382 0 256-114.618 256-256 0-30.774-5.452-60.268-15.408-87.598 3.978 2.378 7.938 4.802 11.858 7.302v0zM512 416c0 53.020-42.98 96-96 96s-96-42.98-96-96 42.98-96 96-96 96 42.982 96 96z"/></g></svg>') 0 0 no-repeat;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+.field .inputWrap {
+  box-shadow: 0 -1px 0 #DDD inset;
+}
+.field input {
+  background: none;
+  height: 26px;
+  width: 100%;
+  border: 0;
+  padding: 5px 0;
+  font-size: inherit;
+  background: -webkit-linear-gradient(90deg, #2B93D9 100%, transparent 0%) 0 35px no-repeat;
+  background: linear-gradient(0deg, #2B93D9 100%, transparent 0%) 0 35px no-repeat;
+  background-size: 0 100%;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+.field input:focus {
+  background-size: 100% 100%;
+  outline: none;
+}
+.field input:invalid {
+  box-shadow: none;
+}
+.field input + label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8px;
+  opacity: .5;
+  -webkit-transition: 0.2s cubic-bezier(0.7, 0.15, 0.36, 1);
+  transition: 0.2s cubic-bezier(0.7, 0.15, 0.36, 1);
+}
+.field input:focus + label, .field input:valid + label, .field input.hasValue + label {
+  pointer-events: auto;
+  -webkit-transform: translateY(-120%);
+          transform: translateY(-120%);
+  font-size: 12px;
+  color: #2B93D9;
+  opacity: 1;
+}
+.field input:focus + label .togglePass, .field input:valid + label .togglePass, .field input.hasValue + label .togglePass {
+  opacity: .3;
+}
+.field input:focus + label .togglePass:hover, .field input:valid + label .togglePass:hover, .field input.hasValue + label .togglePass:hover {
+  opacity: .5;
+}
+.field input:focus + label .togglePass.active, .field input:valid + label .togglePass.active, .field input.hasValue + label .togglePass.active {
+  opacity: 1;
+}
+.field__rules {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  padding: 5px;
+  font-size: .8em;
+  list-style: none;
+  color: #333;
+}
+.field__rules > li {
+  padding: 3px 0;
+}
+.field__rules > li::before {
+  content: '\2022';
+  display: inline-block;
+  color: #DDD;
+  font-size: 2.2em;
+  line-height: 0;
+  margin: -4px 6px 0 0;
+  vertical-align: middle;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+.field__rules > li.pass::before {
+  color: #2B93D9;
+}
+.field .showPassBtn {
+  float: right;
+  padding: 0;
+  font-size: .9em;
+  opacity: .7;
+  line-height: 1.5;
+  height: 1.5em;
+  margin-left: 1.5em;
+  background: none;
+  border: 0;
+  overflow: hidden;
+}
+.field .showPassBtn::before {
+  content: '\2022';
+  display: inline-block;
+  font-size: 30px;
+  line-height: 20px;
+  vertical-align: top;
+  margin-right: .3em;
+  border: 1px solid black;
+}
+.field .showPassBtn::after {
+  content: 'Show\AHide';
+  display: inline-block;
+  text-align: left;
+  white-space: pre;
+  vertical-align: top;
+  -webkit-transition: .18s ease-out;
+  transition: .18s ease-out;
+}
+.field .showPassBtn:hover {
+  opacity: 1;
+}
+.field .showPassBtn.active::after {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}

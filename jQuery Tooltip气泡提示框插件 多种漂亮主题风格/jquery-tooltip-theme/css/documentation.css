@@ -1,0 +1,97 @@
+﻿.tooltip-container {
+	width: 600px;
+	margin: 0px auto;
+	position: relative;
+}
+
+.btn-toolbar {
+	z-index: 2;
+	margin: 55px 30px 0px 40px;
+}
+
+.example {
+	margin-bottom: 50px;
+}
+
+.example section.left,
+.pull-left  {
+	float: left;
+}
+
+.example section.right {
+	float: right;
+	width: 450px;
+}
+
+.clear {
+	clear: both;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+
+th, td {
+	border: 1px solid #CCC;
+	padding: 6px;
+	font-size: 12px;
+}
+
+th {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 14px;
+}
+
+th, tr:nth-child(even) {
+	background-color: #fBfBfB;
+}
+
+tr:nth-child(odd) {
+	background-color: #FFF;
+}
+
+.demo-link {
+	color: #89CDE4;
+	text-decoration: underline;
+	cursor: pointer;
+	margin-left: 30px;
+}
+
+.demo-link:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+pre.prettyprint, code.prettyprint {
+    border-radius: 4px;
+	font-size: 14px;
+    line-height: 18px;
+	padding: 10px !important;
+	border-color: #E4E4E4 !important;
+}
+
+.samples .btn-toolbar {
+	margin: 30px 30px;
+}
+
+.row {
+	overflow: auto;
+}
+
+.row div {
+	float: left;
+}
+
+.row div.btn-toolbar {
+	margin: 12px 70px 12px 30px;
+}
+
+.row pre {
+	float: left;
+}
+
+.feature-toolbar {
+	margin: 0 auto;
+	margin-bottom: 20px;
+}

@@ -1,0 +1,119 @@
+@charset "utf-8";
+/*框架预览 CSS*/
+.mkeBody{ background:#121212;}
+.mkeHeadBox{ padding: 30px 10px; text-overflow: ellipsis; white-space: nowrap; margin: 0; color: #fff; text-align: center; overflow: hidden; border-bottom: 3px solid #666; box-shadow: inset 0 -2px 3px #000000; letter-spacing: 1px; font: 26px/26px "微软雅黑"; }
+.mkeFooterBox{ padding: 25px 10px; text-overflow: ellipsis; margin: 0; color: #fff; font-size: 14px; line-height: 24px; text-align: center; overflow: hidden; border-top: 3px solid #666; box-shadow: inset 0 2px 3px #000000; }
+.mkeContentBox{ background:#fff; padding:0}
+.mkeContentBox:after{height:0; clear:both;}
+.mkeFooterBox p,.mkeFooterBox div{padding:0; margin:0; line-height:26px; font-size:14px;}
+.mkeFooterBox a{color:#fff; white-space:nowrap}
+.mkeButton{background:#F36; display:inline-block; text-decoration:none; width:102px; border-radius:0.3em; transition:all 0.3s ease}
+.mkeButton:hover{ background: #FF1550; }
+.mkeURL{font-size:24px;}
+.mkeFooterBox .mKeBannerAD{ width: 728px; height: 90px; margin: 18px auto 0; }
+.mkeFooterBox .mSmallKeBannerAD{display:none;}
+@media only screen and (max-width:900px){
+.mkeButton {display:block; margin:8px auto 0;}
+}
+@media only screen and (max-width:767px){
+.mkeHeadBox{font-size:18px; padding:15px 10px;}
+.mkeFooterBox p,.mkeFooterBox div{ line-height:24px; font-size:12px;}
+.mkeURL{font-size:22px;}
+.mkeFooterBox .mKeBannerAD{display:none;}
+.mkeFooterBox .mSmallKeBannerAD{width:300px; height:250px; margin:18px auto 0; display:block;}
+}
+/*End*/
+
+/*主要CSS*/
+body {margin:0 auto;overflow:hidden;}  
+
+/*=============第一页=============*/	
+.header{
+	margin:0 auto;
+	width:100%;
+	height:640px;
+	background-color:#000;
+	position:relative;
+	}
+.header canvas {
+	width:100%;height:auto/*默认全屏显示 可自己设置高度640px*/;
+	display:inline-block;vertical-align:baseline
+	position:absolute;
+	z-index:-1;
+	}
+.header .canvaszz{  /*用来解决视频右键菜单，用于视频上面的遮罩层*/
+	width:100%;
+	background-image: url(img/in_top_bj.jpg);
+	height:640px;
+	position:absolute;
+	z-index:10;
+		filter:alpha(opacity=40);  
+      	-moz-opacity:0.4;  
+      	-khtml-opacity: 0.4;  
+      	opacity: 0.4;
+	}
+
+.audio{ 
+/*设置音乐显示位置*/
+	width:45px;
+	position:fixed;top:65px;left:94%;
+	z-index:100;
+	filter:alpha(opacity=30);  
+      -moz-opacity:0.3;  
+      -khtml-opacity: 0.3;  
+      opacity: 0.3;
+	}
+.header .top_logo{
+	background-image: url(img/top_logo.png);
+	margin:0 auto;
+	width:750px;
+	height:200px;
+	position:absolute;
+	z-index:30;
+	top:10px;
+	left: 50%;
+	margin-left: -390px;
+	}	
+
+.header .nav{
+	width:804px;
+	height:auto;
+	position:absolute;
+	z-index:30;
+	top:250px;
+	left: 50%;
+	margin-left: -400px;
+	}
+.header .nav a.gv { 
+	text-decoration:none; 
+	background:url(img/nav_gv.png) repeat 0px 0px; 
+	width: 130px; 
+	height: 43px; 
+	display: block; 
+	text-align:center;		/*水平居中*/
+	line-height:43px;  /*上下居中*/
+	cursor:pointer;
+	float:left;/*左浮动*/
+	margin:8px 2px 8px 2px;
+	font:18px/43px 'microsoft yahei'; color:#066197;
+	}
+.header .nav a.gv span {
+	 display: none;
+	 	
+}
+.header .nav a.gv:hover { 
+	background: url(img/nav_gv.png) repeat 0px -43px; 
+	color:#1d7eb8;
+	-webkit-box-shadow: 0 0 6px #1d7eb8;
+	transition-duration: 0.5s;
+	}
+	
+.header	.topcn{
+	width: 980px;
+	top:200px;
+	left: 50%;
+	margin-left: -490px;
+	position:absolute;
+	z-index:20;
+
+	}

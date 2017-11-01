@@ -1,0 +1,10 @@
+/*---------------------------------------公共样式(请勿修改)---------------------------------------------*/
+body { margin: 0; font-family: "Helvetica,Arial,FreeSans"; color: #000000; font-size: 12px; }
+.demo_main { padding: 20px; padding-top: 10px; }
+.demo_title { padding: 10px; margin-bottom: 10px; background-color: #D3D8E0; border: solid 1px gray; }
+.demo_title .author{float: right;}
+.demo_content { padding: 10px; margin-bottom: 10px; border: solid 1px gray; }
+fieldset { border: 1px solid gray; }
+
+/*---------------------------------------自定义样式---------------------------------------------*/
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<textwrap>
+<text>
+Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。
+</text>
+<text>
+Javascript代码嵌入在HTML页面中，它把静态页面转变为支持用户交互并响应事件的活页面。
+</text>
+<text>
+Javascript最早称作LiveScript，由Netscape Communications 和 Sun Microsystems联合开发。
+</text>
+<text>
+Javascript和HTML关系密切，它们都由浏览器来处理。
+</text>
+<text>
+由于安全的原因，客户端的javascript不允许读写文件。
+</text>
+<text>
+Javascript 读取Cookie
+</text>
+</textwrap>

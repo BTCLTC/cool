@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>支持任何DOM元素的实用jQuery跑马灯插件|DEMO1</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="css/liMarquee.css">
+	<style type="text/css">
+		.str_wrap{
+			padding-left: 3em;
+			padding-right: 3em;
+			background: #fefefe;
+			height: 3em;
+			line-height: 3em;
+			font-size: 1.2em;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="jq22-container">
+		<header class="jq22-header">
+			<h1>支持任何DOM元素的实用jQuery跑马灯插件 <span>A jQuery MARQUEE Plugin</span></h1>
+			
+			<div class="jq22-demo center">
+			  <a href="index.html" class="current">Default</a>
+			  <a href="index2.html">垂　直</a>
+			  <a href="index3.html">图片和HTML元素</a>
+			  <a href="index4.html">从XML中获取数据</a>
+			</div>
+		</header>
+		<div class="jq22-content">
+			<h3>Default</h3>
+			<div class="str1 str_wrap">
+				Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。 
+			</div>
+			<h3>从左到右显示</h3>
+			<div class="str2 str_wrap">
+		        Javascript代码嵌入在HTML页面中，它把静态页面转变为支持用户交互并响应事件的活页面。
+		    </div>
+		    <h3>修改速度</h3>
+		    <div class="str3 str_wrap">
+				Javascript最早称作LiveScript，由Netscape Communications 和 Sun Microsystems联合开发。
+			</div>
+			<section class="jq22-demo">
+				<a class="speedChange" data-scrollamount="30" href="#">慢速 (30px/sec)</a>
+				<a class="speedChange" data-scrollamount="90" href="#">中等速度 (90px/sec)</a>
+				<a class="speedChange" data-scrollamount="250" href="#">快速 (250px/sec)</a>
+			</section>
+			<h3>禁止使用鼠标拖动文本</h3>
+			<div class="str4 str_wrap">
+		        上面的跑马灯文本可以使用鼠标来拖动，这里的被禁止了！
+		    </div>
+		    <h3>禁用鼠标滑过时暂停文本动画</h3>
+		    <div class="str5 str_wrap">
+		       这里的跑马灯文字在鼠标滑过或悬停时不会暂停。。。
+		    </div>
+		    <h3>暂停和播放功能</h3>
+		    <div class="str6 str_wrap">
+		        Javascript和HTML关系密切，它们都由浏览器来处理。
+		    </div>
+		    <section  class="jq22-demo">
+		    	<button class="btnPause">暂　停</button>
+        		<button class="btnPlay">播　放</button>
+		    </section>
+	    </div>
+	</div>
+	
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="js/jquery.liMarquee.js"></script>
+	<script>
+	$(window).load(function(){
+		$('.str1').liMarquee();
+		$('.str2').liMarquee({
+			direction: 'right'	
+		});
+		var stringEl = $('.str3').liMarquee();
+		$('.speedChange').on('click',function(){
+			var speedChange = $(this);
+			var dataSpeed = speedChange.data('scrollamount');
+
+			stringEl.trigger('mouseenter');
+			stringEl.data({scrollamount:dataSpeed});
+			stringEl.trigger('mouseleave');
+			
+			return false;	
+		});
+		$('.str4').liMarquee({
+			drag: false	
+		});
+		$('.str5').liMarquee({	
+			hoverstop: false
+		});
+		$('.str6').liMarquee();
+		$('.btnPause').on('click',function(){
+			$('.str6').liMarquee('pause');
+		});
+		$('.btnPlay').on('click',function(){
+			$('.str6').liMarquee('play');
+		})
+		});
+
+	</script> 
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>myFocus仿腾讯微博效果</title>
+<style type="text/css">
+body { background:#fff; padding:20px; font:12px/1.5 Verdana, Geneva, sans-serif; }
+/*=========mF_sd_tqq========*/
+.mF_sd_tqq *{ margin:0; padding:0; list-style:none;}
+.mF_sd_tqq{width:566px;height:288px;position:relative;overflow:hidden;border:2px solid #E7E7E7;border-left:0;border-right:0;}
+.mF_sd_tqq ul{padding:0 16px;width:534px;line-height:22px;float:left;position:absolute;}
+.mF_sd_tqq ul li{float:left;padding:14px 0;width:100%;border-bottom:1px dashed #D8D8D8;}
+.mF_sd_tqq ul li .img{float:left;width:50px;border:1px solid #D2D2D2;padding:1px;}
+.mF_sd_tqq ul li .msg{float:right;width:468px;}
+.mF_sd_tqq ul li .msg p{font-size:14px;}
+.mF_sd_tqq ul li .msg .from{font-size:12px;color:#999;}
+</style>
+<script type="text/javascript" src="../../js/myfocus-2.0.4.min.js"></script>
+<script type="text/javascript">
+myFocus.pattern.extend({//*********************tqq******************
+	'mF_sd_tqq':function(settings,$){
+		var $tqq=$(settings);
+		var $msgUl=$tqq.find('.msgs');
+		//PLAY
+		$tqq.play(function(i,n){
+			var last=$msgUl.find('li')[n-1],lastH=last.offsetHeight;
+			$msgUl.slide({marginTop:lastH},800,function(){
+				$msgUl[0].insertBefore(last,$msgUl[0].firstChild);
+				$msgUl[0].style.marginTop=0+'px';
+				$(last).fadeIn();
+			});
+		});
+	}
+});
+//实例化
+myFocus.set({
+	id:'tqq',
+	pattern:'mF_sd_tqq',
+	time:3
+});
+</script>
+</head>
+<body>
+<h2>myFocus tqq 风格(微博首页轮换)</h2>
+<div id="tqq" class="mF_sd_tqq">
+  <ul class="msgs">
+    <li>
+      <div class="img"><img src="img/1.jpg" /></div>
+      <div class="msg">
+        <p><strong>情天娃娃</strong>：快八点了，今天的工作暂告一段落，明天继续。肚子在咕咕叫了，是该补充能量的时候了。人是铁，饭是钢，一顿不吃饿得慌呀！</p>
+        <p class="from">来自<span>iPhone</span></p>
+      </div>
+    </li>
+    <li>
+      <div class="img"><img src="img/2.jpg" /></div>
+      <div class="msg">
+        <p><strong>一沙一天堂</strong>：宝洁生活家的礼品收到了，一本杂志，好几种潘婷试用品，满满一盒。卓越快递给送来的。不错啊！</p>
+        <p class="from">来自<span>网页</span></p>
+      </div>
+    </li>
+    <li>
+      <div class="img"><img src="img/3.jpg" /></div>
+      <div class="msg">
+        <p><strong>寒汕樰</strong>：“方丈，你到底什么时候娶我？”“师太，你我都是出家之人，岂能……”“如果你不娶我，我立马宰了这个牛鼻子老道！！”“MLGB，老贼尼！你敢动他，我跟你拼了！” ……………………………………</p>
+        <p class="from">来自<span>QQ</span></p>
+      </div>
+    </li>
+    <li>
+      <div class="img"><img src="img/4.jpg" /></div>
+      <div class="msg">
+        <p><strong>聂小爱</strong>：如果再让我遇见你，我会把你拉到卧室，回手锁上门，疯狂地把你推倒床上，用被子蒙住头，张开我的手臂，摞起袖子告诉你：看，我的手表是夜光的！</p>
+        <p class="from">来自<span>iPhone</span></p>
+      </div>
+    </li>
+    <li>
+      <div class="img"><img src="img/50.jpg" /></div>
+      <div class="msg">
+        <p><strong>這裡一定要填</strong>：大半夜还不睡觉的小艾~~</p>
+        <p class="from">来自<span>QQ空间</span></p>
+      </div>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/***********************************************************
+*** CUSTOMIZE THE LOADING SCREEN BACKGROUND + ICON COLORS
+************************************************************/
+/* loading screen background color */
+#bonfire-pageloader {
+	background-color:#1FB6DB;
+}
+/* loading icon color */
+#bonfire-pageloader svg {
+	fill:#fff;
+}
+
+
+/***********************************************************
+*** THE NITTY-GRITTY
+************************************************************/
+/* the pageloader */
+#bonfire-pageloader {
+	position:absolute;
+	z-index:99999999999999;
+	width:100%;
+	height:1000%;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin-top:-50px;
+}
+.bonfire-pageloader-fade {
+	opacity:0 !important;
+	
+	-webkit-transition: all .75s ease;
+	-moz-transition: all .75s ease;
+	-o-transition: all .75s ease;
+	-ms-transition: all .75s ease;
+	transition: all .75s ease;
+}
+.bonfire-pageloader-hide {
+	display:none;
+}
+
+/* the loading icon */
+.bonfire-pageloader-icon {
+	width:100px;
+	height:100px;
+	position:absolute;
+	margin:100px 0 0 0;
+	opacity:1;
+	top:0;
+	text-align: center;
+	color: #fff;
+}
+.bonfire-pageloader-icon-hide {
+	opacity:0 !important;
+	
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	transition: all .25s ease;
+}
+#bonfire-pageloader svg {
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+	width:100px;
+	height:100px;
+}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+/* lets give the page body that subtle slide-in animation */
+html {
+	height:100%;
+	
+	-webkit-backface-visibility: hidden;
+	
+	-webkit-transform-origin:top;
+	-moz-transform-origin:top;
+	-ms-transform-origin:top;
+	-o-transform-origin:top;
+	transform-origin:top;
+	
+	-webkit-transition: all .75s ease;
+	-moz-transition: all .75s ease;
+	-o-transition: all .75s ease;
+	-ms-transition: all .75s ease;
+	transition: all .75s ease;
+}
+.bonfire-html-onload {	
+	-webkit-transform: translateY(-50px);
+	-moz-transform: translateY(-50px);
+	-ms-transform: translateY(-50px);
+	-o-transform: translateY(-50px);
+	transform: translateY(-50px);
+
+	-webkit-transition: all 0s ease;
+	-moz-transition: all 0s ease;
+	-o-transition: all 0s ease;
+	-ms-transition: all 0s ease;
+	transition: all 0s ease;
+}
+
+
+
+body,textarea,input,select,option {color:#333;font-family:Tahoma,Arial,sans-serif;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+body,h1,h2,h3,h4,h5,h6,blockquote,ol,ul,dl,dd,p,textarea,input,select,option,form {margin:0;}
+ol,ul,textarea,input,option,th,td {padding:0;}
+table {border-collapse:collapse;}
+ol,ul {list-style-type:none;}
+.clearfix:before,.clearfix:after {content:'';display:table;}
+.clearfix:after {clear:both;}.clearfix {*zoom:1;}
+.clearfix:after {content:'.';display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {*zoom:1;}
+.clear {clear:both;height:0;overflow:hidden;}
+a {text-decoration:none;color:#333;}
+a,textarea,input{outline:none}
+textarea {overflow:auto;resize:none;}
+.img img {display:block;}
+a img {border:none;}
+.z_index{position:fixed;_position:absolute;z-index:999;display:none;}
+.pr {position:relative;}.pa {position:absolute;}
+.fl {float:left;}.fr {float:right;}
+
+a:hover{text-decoration:underline}
+

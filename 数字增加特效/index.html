@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CountUp.js</title>
+
+<link rel="stylesheet" type="text/css" href="css/base.css">
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/countUp.min.js"></script>
+
+</head>
+<body>
+
+
+<!-- Copyright © 2005. Spidersoft Ltd -->
+<style>
+A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
+A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
+A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
+A.info:hover    {color:green;background:transparent;text-decoration:underline}
+</style>
+<div style='BORDER: 1px solid #DCE6F4; MARGIN-TOP: 20px; MARGIN-BOTTOM: 20px; MARGIN-LEFT: 5px; MARGIN-RIGHT: 5px; PADDING: 5px; BACKGROUND-COLOR: #eef8ff;line-height:180%; COLOR: #000000; font-family: Verdana; font-size: 9pt; width=100%; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr="#FFFFFFFF", EndColorStr="#F2F5FAFF");'>
+’‚“≥±£¥Ê «”√ <a class="applink" href="http://www.spidersoft.com"><b>WebZIP 7.0.0.1025</b></a>  ‘⁄  12/14/16 12:26:26.<br>
+<b>µÿ÷∑:</b> <a class="info" href="http://www.17sucai.com/preview/178132/2015-07-16/countUp.min_.js%E7%9A%84%E8%BF%90%E7%94%A8_/index.html">http://www.17sucai.com/preview/178132/2015-07-16/countUp.min_.js%E7%9A%84%E8%BF%90%E7%94%A8_/index.html</a><br>
+<b>±ÍÃ‚:</b> CountUp.js &nbsp;&bull;&nbsp; <b>¥Û–°:</b> 1274 &nbsp;&bull;&nbsp; <b>◊Ó∫Û–ﬁ∏ƒ:</b> Fri, 17 Jul 2015 02:51:09 GMT<br></div>
+<!-- /Copyright © 2005. Spidersoft Ltd -->
+
+
+
+<div id="wrap">
+	<section>
+		<h1 class="jumbo" id="myTargetElement">1890</h1>
+		<h1 class="jumbo" id="myTargetElement2">15894</h1>
+		<h1 class="jumbo" id="myTargetElement3">1890</h1>
+	</section>
+</div>
+
+<script type="text/javascript">
+	var options = {
+‚ÄÉ‚ÄÉuseEasing : true, 
+‚ÄÉ‚ÄÉuseGrouping : true, 
+‚ÄÉ‚ÄÉseparator : ',', 
+‚ÄÉ‚ÄÉdecimal : '.', 
+‚ÄÉ‚ÄÉprefix : '', 
+‚ÄÉ‚ÄÉsuffix : '' 
+};
+var demo = new CountUp("myTargetElement", 0, 1890, 0, 2.5, options);
+var demo2 = new CountUp("myTargetElement2", 0, 15894, 0, 2.5, options);
+var demo3 = new CountUp("myTargetElement3", 0, 385, 0, 2.5, options);
+$(window).scroll(function(){
+	if($(window).scrollTop()>=600){
+		demo.start();
+		demo2.start();
+		demo3.start();
+	}
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+<!DOCTYPE HTML>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no;" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" /> 
+<meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+<meta content="telephone=no" name="format-detection" />
+<head>
+<title>住宿的jQuery日期选择插件</title>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="./js/dateRange.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/dateRange.css"/>
+</head>
+
+<body>
+	<div class="ta_date" id="div_date1">
+		<span class="date_title" id="date1"></span>
+	</div>
+
+
+	<script type="text/javascript">
+		var dateRange1 = new pickerDateRange('date1', {
+			stopToday : false,
+			isTodayValid : true,
+			startDate: '2015-11-05',
+			endDate: '2015-11-06',
+			needCompare : false,
+			defaultText : ' 离开 ',
+			autoSubmit : false,
+			inputTrigger : 'input_trigger1',
+			theme : 'ta'
+		});
+
+	</script>
+</body>
+</html>

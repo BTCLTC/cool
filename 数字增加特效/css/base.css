@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*reset css*/
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption,  hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video{margin: 0;padding: 0;border: 0;font-size: 100%;font-size: 10px;font: inherit;vertical-align: baseline;font-weight:normal;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,.footer, .header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none;}
+blockquote,q {quotes: none;}
+a{text-decoration: none;-moz-transition:all 200ms ease;-webkit-transition:all 200ms ease;-o-transition:all 200ms ease;transition:all 200ms ease;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+textarea,select{resize: none;font-family:微软雅黑,"黑体";}
+input{font-family:"微软雅黑","黑体";}
+/*清除浮动*/
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear: both;height:0;}
+.clearfix{*zoom:1;}
+.clear{ clear:both; height:0px; width:0px; line-height:0px; visibility:hidden; }
+/*定位 显示*/
+.fl{float:left; display:inline;}
+.fr{float:right; display:inline;}
+a{color:#666;}
+em,i{font-style:normal;}
+body{font-family:"微软雅黑";background:#fff;height:2000px;}
+
+
+#wrap {width: 981px;margin:800px auto -25px auto;text-align: left;overflow: hidden;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+section {display: block;clear: left;position: relative;width: 100%;border-bottom: 1px #C4C4C4 solid;}
+h1.jumbo {font-size: 8em;margin: 0;color: #4d63bc;}
+@media all and (max-width: 1021px) {
+	#wrap {
+		width:100%;
+		padding:0 20px;
+	}
+	h1.jumbo {
+		font-size:5em;
+	}
+}
+@media all and (max-width: 480px) {
+	
+	#wrap {
+		padding:0 15px;
+	}
+	h1.jumbo {
+		font-size:2em;
+	}
+}

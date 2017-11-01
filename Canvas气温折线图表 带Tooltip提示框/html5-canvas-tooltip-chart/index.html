@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 Canvas气温折线图表DEMO演示</title>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/echarts-all.js" type="text/javascript"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+var imgsrc=new Array("Image/1.png","Image/2.png","Image/1.png","Image/2.png","Image/1.png","Image/2.png","Image/1.png"); //图片路径数组
+var chart1=echarts.init(document.getElementById("con1")); //显示区域的id
+
+option = {
+    title : {
+        text: '未来一周气温变化' //标题
+    },
+    tooltip : {
+        trigger: 'axis',
+        padding: 10, 
+     	formatter:function(params,ticket,callback){
+		console.log(params[0].dataIndex);
+		var imgindex=params[0].dataIndex;
+		var txt=params[0].name+":"+params[0].value+"<br/>";
+		txt+="<img src="+imgsrc[imgindex]+" width=\"140\" >"; //添加对应的图片
+	  return txt;
+    }
+
+    },
+  
+ //   legend: {
+//        data:['最高气温','最低气温']
+//    },
+    toolbox: {
+        show : false,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+//    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日'] //横坐标
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+			scale: true,
+            axisLabel : {
+                formatter: '{value} °C' //纵坐标单位
+            }
+        }
+    ],
+
+    series : [
+        {
+            name:'最高气温',
+            type:'line',
+            data: [34, 12,
+    {
+        value : 56,
+        tooltip:{
+		trigger:'axis',
+		formatter:function(params, ticket, callback){
+		
+                    var thistxt = "222";
+                    return thistxt;
+		}
+		}
+    },
+   22,55,32,10
+],
+			//itemStyle: {
+//            normal: {
+//            lineStyle :{
+//			 color:'#3b8eae',
+//			}
+//             }
+//           },
+
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }//,
+//        {
+//            name:'最低气温',
+//            type:'line',
+//            data:[1, -2, 2, 5, 3, 2, 0],
+//            markPoint : {
+//                data : [
+//                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+//                ]
+//            },
+//            markLine : {
+//                data : [
+//                    {type : 'average', name : '平均值'}
+//                ]
+//            }
+//        }
+    ]
+};
+chart1.setOption(option);
+});
+</script>
+</head>
+
+<body>
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<center>
+<div id="con1" style=" width:1000px; height:800px; border:red solid 1px;"></div>
+</center>
+
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

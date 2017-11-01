@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Tooltip气泡提示框插件DEMO演示</title>
+
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel='stylesheet' href='font-awesome-4.3.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/documentation.css">
+<link href="css/prettify.css" rel="stylesheet">
+<link href="css/jquery.toolbar.css" rel="stylesheet" />
+
+<!--[if IE]>
+	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+	<div class="tooltip-container normal">
+		<section>
+			<h2>Examples</h2>
+				<span>Default</span>
+				<div class="samples">
+					<div data-toolbar="user-options" class="btn-toolbar pull-left"><i class="fa fa-cog"></i></div>
+				<div class="clear"></div>
+			</div>
+			<span>Colorful</span>
+			<div class="samples">
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-primary pull-left" data-toolbar-event="click" data-toolbar-style="primary"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-danger pull-left" data-toolbar-style="danger"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-warning pull-left" data-toolbar-style="warning"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-info pull-left" data-toolbar-style="info"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-success pull-left" data-toolbar-style="success"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-info-o pull-left" data-toolbar-style="info-o"><i class="fa fa-cog"></i></div>
+				<div class="clear"></div>
+			</div>
+			<span>Shades</span>
+			<div class="samples">
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-light pull-left" data-toolbar-style="light"><i class="fa fa-cog"></i></div>
+				<div data-toolbar="user-options" class="btn-toolbar btn-toolbar-dark pull-left" data-toolbar-style="dark"><i class="fa fa-cog"></i></div>
+				<div class="clear"></div>
+			</div>
+			<span>Customizable</span>
+			<div class="samples">
+				<div data-toolbar="transport-options" class="btn-toolbar btn-toolbar-primary pull-left" data-toolbar-event="click" data-toolbar-style="primary"><i class="fa fa-plane"></i></div>
+				<div data-toolbar="set-01" class="btn-toolbar btn-toolbar-danger pull-left" data-toolbar-style="danger"><i class="fa fa-line-chart"></i></div>
+				<div data-toolbar="set-02" class="btn-toolbar btn-toolbar-warning pull-left" data-toolbar-style="warning"><i class="fa fa-apple"></i></div>
+				<div data-toolbar="set-03" class="btn-toolbar btn-toolbar-info pull-left" data-toolbar-style="info"><i class="fa fa-bitcoin"></i></div>
+				<div data-toolbar="set-04" class="btn-toolbar btn-toolbar-success pull-left" data-toolbar-style="success"><i class="fa fa-heart"></i></div>
+				<div data-toolbar="transport-options-o" class="btn-toolbar btn-toolbar-info-o pull-left" data-toolbar-style="info-o"><i class="fa fa-truck"></i></div>
+				<div class="clear"></div>
+			</div>
+			<span>Animations</span>
+			<div class="samples">
+				<div data-toolbar="transport-options" data-toolbar-animation="standard" class="btn-toolbar btn-toolbar-primary pull-left" data-toolbar-event="click" data-toolbar-style="primary"><i class="fa fa-plane"></i></div>
+				<div data-toolbar="transport-options" data-toolbar-animation="flip" class="btn-toolbar btn-toolbar-danger pull-left" data-toolbar-style="danger"><i class="fa fa-bicycle"></i></div>
+				<div data-toolbar="transport-options" data-toolbar-animation="grow" class="btn-toolbar btn-toolbar-warning pull-left" data-toolbar-style="warning"><i class="fa fa-car"></i></div>
+				<div data-toolbar="transport-options" data-toolbar-animation="flyin" class="btn-toolbar btn-toolbar-info pull-left" data-toolbar-style="info"><i class="fa fa-train"></i></div>
+				<div data-toolbar="transport-options" data-toolbar-animation="bounce" class="btn-toolbar btn-toolbar-success pull-left" data-toolbar-style="success"><i class="fa fa-subway"></i></div>
+				<div data-toolbar="transport-options" data-toolbar-animation="grow" class="btn-toolbar btn-toolbar-info-o pull-left" data-toolbar-style="info-o"><i class="fa fa-truck"></i></div>
+				<div class="clear"></div>
+			</div>				
+			<br><br><br>
+			<div class="example">
+				<h3>Creating Buttons</h3>
+				<p>The button can be created by adding the class .btn-toolbar to a html element e.g. a div, a, span, button, while the colors can be controller with different CSS classes.</p>
+				<section class="left">
+					<br><br>
+					<div class="row">
+						<div class="btn-toolbar"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar"&gt;...&lt;/div&gt;</pre>
+					</div>
+				
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-primary"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-primary"&gt;...&lt;/div&gt;</pre>
+					</div>
+
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-danger"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-danger"&gt;...&lt;/div&gt;</pre>
+					</div>
+
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-warning"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-warning"&gt;...&lt;/div&gt;</pre>
+					</div>
+
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-info"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-info"&gt;...&lt;/div&gt;</pre>
+					</div>
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-success"><i class="fa fa-cog"></i></div>
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-success"&gt;...&lt;/div&gt;</pre>
+					</div>
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-info-o"><i class="fa fa-cog"></i></div>												
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-info-o"&gt;...&lt;/div&gt;</pre>
+					</div>
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-dark"><i class="fa fa-cog"></i></div>							
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-dark"&gt;...&lt;/div&gt;</pre>
+					</div>
+					<div class="row">
+						<div class="btn-toolbar btn-toolbar-light"><i class="fa fa-cog"></i></div>							
+						<pre class="prettyprint">&lt;div class="btn-toolbar btn-toolbar-light"&gt;...&lt;/div&gt;</pre>
+					</div>
+				</section>
+				<section class="right">
+
+
+				</section>
+			<div class="clear"></div>
+	</div>
+	<h2>Options</h2>
+			<br>
+			<div class="example">
+
+				<h3>Content</h3>
+				<p>This should be the ID of the element which contains your toolbar icons.</p>
+				<section class="left">
+					<div data-toolbar="content-option" class="btn-toolbar"><i class="fa fa-cog"></i></div>
+				</section>
+				<section class="right">
+<pre class="prettyprint">
+$('#button').toolbar({
+content: '#toolbar-options',
+});</pre>
+</section>
+<div class="clear"></div>
+				
+				<h3>Position</h3>
+				<p>The toolbar can be positioned to the top, left, right or bottom of the element. Set the value of position to where you want the toolbar to appear.</p>
+				<section class="left">
+					<div data-toolbar="position-option" class="btn-toolbar"><i class="fa fa-cog"></i></div>
+				</section>
+				<section class="right">
+<pre class="prettyprint">
+$('#button').toolbar({
+content: '#toolbar-options',
+position: 'bottom'
+});</pre>
+				</section>
+				<div class="clear"></div>
+			</div>
+
+			<div class="example">
+				<h3>Style</h3>
+				<p>The toolbar color can be set through the style option. It accepts the same values as the css buttons. You can mix and match styles for the buttons and toolbars to create any color combo you want (but genrally the same styles go together).</p>
+				<section class="left">
+					<div data-toolbar="style-option" class="btn-toolbar btn-toolbar-primary"><i class="fa fa-cog"></i></div>
+				</section>
+				<section class="right">
+<pre class="prettyprint">
+$('#button').toolbar({
+content: '#toolbar-options',
+position: 'bottom',
+style: 'primary'
+});</pre>
+				</section>
+				<div class="clear"></div>
+			</div>
+
+			<div class="example">
+				<h3>Animation</h3>
+				<p>The toolbar animation can be set through the animation option. There are five different options for the animation which can be viewed in the example above. From left to right the options are standard, flip, grow, flyin, and bounce.</p>
+				<section class="left">
+					<div data-toolbar="animation-option" class="btn-toolbar btn-toolbar-primary"><i class="fa fa-cog"></i></div>
+				</section>
+				<section class="right">
+<pre class="prettyprint">
+$('#button').toolbar({
+content: '#toolbar-options',
+position: 'bottom',
+style: 'primary',
+animation: 'flip'
+});</pre>
+				</section>
+				<div class="clear"></div>
+			</div>
+</section>
+<div id="user-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-user"></i></a>
+		<a href="#"><i class="fa fa-star"></i></a>
+		<a href="#"><i class="fa fa-edit"></i></a>
+		<a href="#"><i class="fa fa-trash"></i></a>
+		<a href="#"><i class="fa fa-circle"></i></a>
+	</div>
+
+	<div id="transport-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-plane"></i></a>
+		<a href="#"><i class="fa fa-car"></i></a>
+		<a href="#"><i class="fa fa-bicycle"></i></a>
+	</div>		
+
+	<div id="transport-options-2" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-plane"></i></a>
+		<a href="#"><i class="fa fa-car"></i></a>
+		<a href="#"><i class="fa fa-bicycle"></i></a>
+	</div>	
+
+	<div id="transport-options-o" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-car"></i></a>
+		<a href="#"><i class="fa fa-bicycle"></i></a>
+		<a href="#"><i class="fa fa-truck"></i></a>
+		<a href="#"><i class="fa fa-plane"></i></a>
+	</div>		
+
+	<div id="set-01-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-area-chart"></i></a>
+		<a href="#"><i class="fa fa-bar-chart"></i></a>
+		<a href="#"><i class="fa fa-line-chart"></i></a>
+	</div>	
+
+	<div id="set-02-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-android"></i></a>
+		<a href="#"><i class="fa fa-apple"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+	</div>	
+
+	<div id="set-03-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-bitcoin"></i></a>
+		<a href="#"><i class="fa fa-eur"></i></a>
+		<a href="#"><i class="fa fa-cny"></i></a>
+	</div>	
+
+	<div id="set-04-options" class="toolbar-icons hidden">
+		<a href="#"><i class="fa fa-heart"></i></a>
+		<a href="#"><i class="fa fa-heart-o"></i></a>
+		<a href="#"><i class="fa fa-heartbeat"></i></a>
+	</div>	
+	
+</div>
+
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="js/prettify.js"></script>
+<script src="js/jquery.toolbar.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+
+		// Define any icon actions before calling the toolbar
+		$('.toolbar-icons a').on('click', function( event ) {
+			event.preventDefault();
+		});
+
+		$('div[data-toolbar="user-options"]').toolbar({
+			content: '#user-options',
+			position: 'top',
+		});
+
+		$('div[data-toolbar="transport-options"]').toolbar({
+			content: '#transport-options',
+			position: 'top',
+		});		
+
+		$('div[data-toolbar="transport-options-o"]').toolbar({
+			content: '#transport-options-o',
+			position: 'bottom',
+			event: 'click',
+			hideOnClick: true,
+		});									
+
+		$('div[data-toolbar="content-option"]').toolbar({
+			content: '#transport-options',
+		});		
+
+		$('div[data-toolbar="position-option"]').toolbar({
+			content: '#transport-options',
+			position: 'bottom',
+		});
+
+		$('div[data-toolbar="style-option"]').toolbar({
+			content: '#transport-options',
+			position: 'bottom',
+			style: 'primary',
+		});
+
+		$('div[data-toolbar="animation-option"]').toolbar({
+			content: '#transport-options',
+			position: 'bottom',
+			style: 'primary',
+			animation: 'flyin'
+		});
+
+		$('div[data-toolbar="event-option"]').toolbar({
+			content: '#transport-options',
+			position: 'bottom',
+			style: 'primary',
+			event: 'click',
+		});								
+
+		$('div[data-toolbar="hide-option"]').toolbar({
+			content: '#transport-options',
+			position: 'bottom',
+			style: 'primary',
+			event: 'click',
+			hideOnClick: true
+		});								
+
+		$('#link-toolbar').toolbar({
+			content: '#user-options', 
+			position: 'top',
+			event: 'click',
+			adjustment: 35
+		});
+
+		$('div[data-toolbar="set-01"]').toolbar({
+			content: '#set-01-options',
+			position: 'top',
+		});	
+
+		$('div[data-toolbar="set-02"]').toolbar({
+			content: '#set-02-options',
+			position: 'left',
+		});	
+
+		$('div[data-toolbar="set-03"]').toolbar({
+			content: '#set-03-options',
+			position: 'bottom',
+		});	
+
+		$('div[data-toolbar="set-04"]').toolbar({
+			content: '#set-04-options',
+			position: 'right',
+		});	
+
+		$(".download").on('click', function() {
+			mixpanel.track("Toolbar.Download");
+		});
+
+		$("#transport-options-2").find('a').on('click', function() {
+			$this = $(this);
+			$button = $('div[data-toolbar="transport-options-2"]');
+			$newClass = $this.find('i').attr('class').substring(3);
+			$oldClass = $button.find('i').attr('class').substring(3);
+			if($newClass != $oldClass) {
+				$button.find('i').animate({
+					top: "+=50",
+					opacity: 0
+				}, 200, function() {
+					$(this).removeClass($oldClass).addClass($newClass).css({top: "-=100", opacity: 1}).animate({
+						top: "+=50" 	
+					});
+				});
+			}
+
+		});
+
+		$('div[data-toolbar="transport-options-2"]').toolbar({
+			content: '#transport-options-2',
+			position: 'top',
+		});	
+
+
+	});
+</script>
+
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+
+</body>
+</html>

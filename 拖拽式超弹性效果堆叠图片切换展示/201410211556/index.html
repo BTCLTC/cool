@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>拖拽式弹性图片堆叠效果</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>图片堆叠效果 <span>可拖动并且非常具有弹性图片展示效果</span></h1>
+			</header>
+			<ul id="elasticstack" class="elasticstack">
+				<li><img src="img/1.jpg" alt="01"/><h5>Saudade</h5></li>
+				<li><img src="img/2.jpg" alt="02"/><h5>Tuqburni</h5></li>
+				<li><img src="img/3.jpg" alt="03"/><h5>Retrouvailles</h5></li>
+				<li><img src="img/4.jpg" alt="04"/><h5>Onsra</h5></li>
+				<li><img src="img/5.jpg" alt="05"/><h5>Mamihlapinatapai</h5></li>
+				<li><img src="img/6.jpg" alt="06"/><h5>Koi No Yokan</h5></li>
+			</ul>
+		</div><!-- /container -->
+		<script src="js/draggabilly.pkgd.min.js"></script>
+		<script src="js/elastiStack.js"></script>
+		<script>
+			new ElastiStack( document.getElementById( 'elasticstack' ) );
+		</script>
+	</body>
+</html>

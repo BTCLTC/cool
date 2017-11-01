@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/waves.min.css?v=0.7.2">
+    <style>
+        #colored-button .btn {
+            color: #fff;
+        }
+
+        #colored-button a,
+        #colored-button a:hover {
+            background: #01BCFF;
+        }
+
+        #colored-button button,
+        #colored-button button:hover {
+            background: #1bb556;
+        }
+
+        #colored-button input,
+        #colored-button input:hover {
+            background: #ff4f0f;
+        }
+    </style>
+
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/6977BD4B-D6D4-9447-BE10-56B6ADF0D109/main.js" charset="UTF-8"></script></head>
+<body>
+    <p id="colored-button" class="text-center">
+        <a class="btn float-buttons waves-effect waves-button waves-float">Button A</a>
+        <button class="btn float-button-light waves-effect waves-button waves-float waves-light">Button B</button>
+        <i class="btn float-buttons waves-input-wrapper waves-effect waves-button waves-float" style="color: rgb(255, 255, 255); background: rgb(255, 79, 15)">
+            <input class="waves-button-input" type="submit" value="Button C" style="background-color: rgba(0,0,0,0);"></i>
+    </p>
+    <script type="text/javascript">
+        Waves.attach('.flat-buttons', ['waves-button']);
+        Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
+        Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+    </script>
+    <script type="text/javascript" src="js/waves.min.js"></script>
+    <!-- jQuery  -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        var currentRoute = false;
+        $(document).on('ready', function () {
+
+            // Init Waves
+            Waves.init();
+            Waves.attach('.drag-ripple', 'waves-block', true);
+            Waves.attach('#bg-pattern', null, true);
+            init();
+            $(window).on('hashchange', routing);
+            /**
+             * Example source code click
+             */
+            $('#example .top-button').on('click', function () {
+                var type = $(this).data('code');
+                $('#source-code .box .code').addClass('hide');
+                $('#source-code .box #code-' + type).removeClass('hide');
+                $('#source-code').removeClass('hide');
+                setTimeout(function () {
+                    $('#source-code').addClass('show');
+                }, 50);
+            });
+            $('#source-code .top-button').on('click', function () {
+
+                $('#source-code').removeClass('show');
+
+                setTimeout(function () {
+                    $('#source-code .box .code').addClass('hide');
+                    $('#source-code').addClass('hide');
+                }, 500);
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基于Three.js的360X180度全景图预览插件</title>
+	<link rel="stylesheet" href="css/example1.css" />
+	<script src="http://www.jq22.com/jquery/three.min.js"></script>
+	<script src="js/photo-sphere-viewer.min.js"></script>
+	<script src="js/example1.js"></script>
+	<!--[if IE]>
+		<script src="http://www.jq22.com/jquery/html5.min.js"></script>
+	<![endif]-->
+	<style>
+		.jq22-header{ text-align: center; }
+	</style>
+</head>
+<body>
+	<div class="jq22-container">
+		<header class="jq22-header">
+			<h1>基于Three.js的360X180度全景图预览插件 </h1>
+		    A JavaScript library to display Photo Sphere panoramas
+		</header>
+		<div id="content">
+			<p>下面的例子可以让你调用预定义的全景图来测试这个全景图插件。点击下面的按钮来查看效果。</p>
+			<p>To see this panorama, just hit the link below: currently, the <code>div</code> has a height of 0 pixel but Photo Sphere Viewer will increase it to 500 pixels.</p>
+
+			<div id="container"></div>
+
+			<p style="text-align: center;">
+				<a href="#" id="go">调用预定义的全景图</a>
+			</p>
+
+			<p>Note that the panorama is here given as a relative path, but you can give to Photo Sphere Viewer an absolute one or an URL pointing to another website if this website allows CORS.</p>
+
+			<p>通过下面的按钮你可以上传自己电脑上的全景图来查看效果。代码使用FileReader API，非常简单，可以查看<code>example1.js</code>文件。 </p>
+
+			<div id="your-pano"></div>
+
+			<form method="get" action="example1.html">
+				<p style="text-align: center;">
+					<input type="file" name="pano" id="pano" />
+				</p>
+			</form>
+		</div>
+		
+	</div>
+</body>
+</html>

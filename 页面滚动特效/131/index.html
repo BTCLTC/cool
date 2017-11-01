@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>WOW.js演示_dowebok</title>
+<link rel="stylesheet" href="css/animate.css">
+<style>
+* { margin: 0; padding: 0;}
+body { overflow-x: hidden; font-family: "Microsoft Yahei";}
+body h1 { width: 100%; margin: 80px 0; font-size: 50px; font-weight: 500; text-align: center;}
+body .txt { margin: 80px 0; font-size: 16px; text-align: center;}
+.dowebok { margin: 0 auto;}
+.dowebok ul { list-style-type: none;}
+.dowebok .row { font-size: 0; text-align: center;}
+.dowebok .wow { display: inline-block; width: 280px; height: 280px; margin: 30px 15px 0; border-radius: 50%; font: 30px/280px "Microsoft Yahei"; vertical-align: top; *display: inline; zoom: 1;}
+.bg-green { background: #5bd5a0;}
+.bg-blue { background: #1daee9;}
+.bg-purple { background: #c843a5;}
+.bg-red { background: #eb3980;}
+.bg-yellow { background: #ffcc35;}
+</style>
+</head>
+
+<body>
+<h1>WOW.js - 让页面滚动更有趣</h1>
+
+<p class="txt">WOW.js 能让页面滚动时显示动画，使页面更有趣。</p>
+
+<div class="dowebok">
+	<div class="row">
+		<div class="wow rollIn bg-blue"></div>
+		<div class="wow bounceInDown bg-green">WOW.js</div>
+		<div class="wow lightSpeedIn bg-purple"></div>
+	</div>
+
+	<div class="row">
+		<div class="wow rollIn bg-yellow" data-wow-delay="0.5s">简单易用</div>
+		<div class="wow pulse bg-red" data-wow-iteration="5" data-wow-duration="0.15s"></div>
+		<div class="wow bounceInRight bg-blue">轻量级</div>
+	</div>
+
+	<div class="row">
+		<div class="wow bounceInLeft bg-green"></div>
+		<div class="wow flipInX bg-purple">WOW.js</div>
+		<div class="wow bounceInRight bg-yellow"></div>
+	</div>
+
+	<div class="row">
+		<div class="wow rollIn bg-blue">无需 jQuery</div>
+		<div class="wow shake bg-red" data-wow-iteration="5" data-wow-duration="0.15s"></div>
+		<div class="wow swing bg-purple" data-wow-iteration="2">纯 JS</div>
+	</div>
+
+	<div class="row">
+		<div class="wow rollIn bg-red"></div>
+		<div class="wow bounceInU bg-yellow" data-wow-delay="0.5s">WOW.js</div>
+		<div class="wow lightSpeedIn bg-green" data-wow-delay="0.5s" data-wow-duration="0.15s"></div>
+	</div>
+
+	<div class="row">
+		<div class="wow bounceInLeft bg-purple">依赖 animate.css</div>
+		<div class="wow pulse bg-blue" data-wow-iteration="5" data-wow-duration="0.25s"></div>
+		<div class="wow lightSpeedIn bg-yellow">多种动画</div>
+	</div>
+
+	<div class="row">
+		<div class="wow bounce bg-green" data-wow-iteration="5" data-wow-duration="0.15s"></div>
+		<div class="wow bounceInUp bg-red">WOW.js</div>
+		<div class="wow bounceInRight bg-purple"></div>
+	</div>
+
+	<div class="row">
+		<div class="wow rollIn bg-red" data-wow-delay="0.5s">无需 jQuery！？</div>
+		<div class="wow bounceInDown bg-green" data-wow-delay="1s"></div>
+		<div class="wow bounceInRight bg-yellow" data-wow-delay="1.5s">谢谢</div>
+	</div>
+</div>
+
+<script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+	new WOW().init();
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- 以下是统计及其他信息，与演示无关，不必理会 -->
+<p class="vad">
+	<a href="http://www.dowebok.com/" target="_blank">dowebok.com</a>
+	<a href="http://www.dowebok.com/131.html" target="_blank">说 明</a>
+	<a href="http://www.dowebok.com/131.html" target="_blank">下 载</a>
+</p>
+
+<style>
+* { margin: 0; padding: 0;}
+body { font-family: Consolas,arial,"宋体";}
+h1 { width: 900px; margin: 40px auto; font: 32px "Microsoft Yahei"; text-align: center;}
+.explain, .dowebok-explain { margin-top: 20px; font-size: 14px; text-align: center; color: #f50;}
+
+.vad { margin: 50px 0 5px; padding-bottom: 60px; font-family: Consolas,arial,宋体; text-align:center;}
+.vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 50px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+.vad a:hover { color: #fff; background-color: #000;}
+.thead { width: 728px; height: 90px; margin: 0 auto; border-bottom: 40px solid transparent;}
+
+.code { position: relative; margin-top: 100px; padding-top: 41px;}
+.code h3 { position: absolute; top: 0; z-index: 10; width: 100px; height: 40px; font: 16px/40px "Microsoft Yahei"; text-align: center; cursor: pointer;}
+.code .cur { border: 1px solid #f0f0f0; border-bottom: 1px solid #f8f8f8; background-color: #f8f8f8;}
+.code .h31 { left: 0;}
+.code .h32 { left: 102px;}
+.code .h33 { left: 204px;}
+.code .h34 { left: 306px;}
+.code { width: 900px; margin-left: auto; margin-right: auto;}
+pre { padding: 15px 0; border: 1px solid #f0f0f0; background-color: #f8f8f8;}
+.f-dn { display: none;}
+</style>
+
+</body>
+</html>

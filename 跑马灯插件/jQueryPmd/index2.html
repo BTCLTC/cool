@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>支持任何DOM元素的实用jQuery跑马灯插件|DEMO2</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" href="css/liMarquee.css">
+	<style type="text/css">
+		.str_wrap{
+			padding-left: 3em;
+			padding-right: 3em;
+			background: #fefefe;
+			height: 10em;
+			line-height: 2em;
+			font-size: 1.2em;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="jq22-container">
+		<header class="jq22-header">
+			<h1>支持任何DOM元素的实用jQuery跑马灯插件 <span>A jQuery MARQUEE Plugin</span></h1></h1>
+			
+			<div class="jq22-demo center">
+			  <a href="index.html">Default</a>
+			  <a href="index2.html" class="current">垂　直</a>
+			  <a href="index3.html">图片和HTML元素</a>
+			  <a href="index4.html">从XML中获取数据</a>
+			</div>
+		</header>
+		<div class="jq22-content">
+			<h3>从下到上滚动</h3>
+			<div class="str1 str_wrap" style="height:200px;">
+		        <p>Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。</p>
+		        <p>Javascript代码嵌入在HTML页面中，它把静态页面转变为支持用户交互并响应事件的活页面。</p>
+		        <p>Javascript最早称作LiveScript，由Netscape Communications 和 Sun Microsystems联合开发。</p>
+		        <p>Javascript和HTML关系密切，它们都由浏览器来处理。</p>
+		        <p>Javascript</p>
+		    </div>
+		    <h3>从上到下滚动</h3>
+		    <div class="str2 str_wrap" style="height:200px;">
+		        <p>Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。</p>
+		        <p>Javascript代码嵌入在HTML页面中，它把静态页面转变为支持用户交互并响应事件的活页面。</p>
+		        <p>Javascript最早称作LiveScript，由Netscape Communications 和 Sun Microsystems联合开发。</p>
+		        <p>Javascript和HTML关系密切，它们都由浏览器来处理。</p>
+		        <p>Javascript</p>
+		    </div>
+	    </div>
+	</div>
+	
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="js/jquery.liMarquee.js"></script>
+	<script>
+	$(window).load(function(){
+		$('.str1').liMarquee({
+			direction: 'up'	
+		});
+		$('.str2').liMarquee({
+			direction: 'down'	
+		});
+	});
+
+	</script> 
+</body>
+</html>

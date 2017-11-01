@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>jQuery鼠标经过显示动画边框特效</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+a{color:#000;text-decoration: none;font-weight: 600}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+.sph{
+	width: 1300px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+.spbq{
+	width: 250px;
+	height: 250px;
+	float: left;
+	line-height: 2;
+	padding: 10px 10px 0 20px;
+	margin: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.spbq h2{
+	color: #14191e;
+	font: bold 14px/18px "Microsoft Yahei","Hiragino Sans GB",Helvetica,"微软雅黑",Tahoma,Arial,sans-serif;
+	margin-top: 18px;
+}
+.spbq span{
+	display: block;
+	color: #b4bbbf;
+	font: 12px/18px "Microsoft Yahei","Hiragino Sans GB",Helvetica,"微软雅黑",Tahoma,Arial,sans-serif;
+	margin: 8px 0;
+}
+.spbq b{
+	color: #787d82;
+	font: 12px/18px "Microsoft Yahei","Hiragino Sans GB",Helvetica,"微软雅黑",Tahoma,Arial,sans-serif;
+}
+.biankuang{
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	z-index: 99;
+	border-radius:10px;
+	/*background: black;*/
+}
+.biankuang_1{
+	height: 3px;
+	top: -6px;
+	left:0px;
+	border-left: 3px solid #EB5858;
+}
+.biankuang_2 {
+	width: 0px;
+	bottom:-3px;
+	left: 0px;
+	border-top: 3px solid #EB5858;
+}
+.biankuang_3{
+	height: 0px;
+	bottom:0px;
+	right:0px;
+	border-right: 3px solid #EB5858;
+}
+.biankuang_4{
+	width:0px;
+	top:-3px;
+	right:0px;
+	border-bottom: 3px solid #EB5858;
+}
+.text_gobuy {
+	position: absolute;
+	z-index:9;
+	top: -30px;
+	left: 0px;
+	width: 280px;
+	height: 50px;
+	overflow: hidden;
+	background:rgba(207, 208, 211, 0);
+	cursor: pointer;
+	transition:all  300ms;
+	-webkit-transition:all  300ms;
+	-moz-transition:all  300ms;
+	-o-transition:all  300ms;
+}
+.text_gobuy_show{
+	height: 50px;
+	position: absolute;
+	z-index:9;
+	bottom: 0px;
+	width: 280px;
+	overflow: hidden;
+	padding: 20px 15px ;
+	cursor: pointer;
+	background-color: rgba(32, 32, 33,0.3);
+}
+.spbq p{
+	position: absolute;
+	bottom:10px;
+	left:110px;
+	line-height: 33px;
+	color: #fff
+}
+</style>
+
+</head>
+<body>
+
+<div class="sph">
+
+	<div class="spbq">
+		<div class="biankuang biankuang_1"></div>
+		<div class="biankuang biankuang_2"></div>
+		<div class="biankuang biankuang_3"></div>
+		<div class="biankuang biankuang_4"></div>
+		<a href="#"><div class="zst"><img src="images/0-135.jpg" alt=""></div><h2>jQuery基础课程</h2><span>让jQuery带您进入网页动态交互世界，为...</span><b>更新完毕 &nbsp;&nbsp;&nbsp;15783人学习</b></a>
+		<div class="text_gobuy">
+			<br/>
+			<p>9小时17分钟 | 初级</p>
+			<br/>
+		</div>
+	</div>
+	
+	<div class="spbq">
+		<div class="biankuang biankuang_1"></div>
+		<div class="biankuang biankuang_2"></div>
+		<div class="biankuang biankuang_3"></div>
+		<div class="biankuang biankuang_4"></div>
+		<a href="#"><div class="zst"><img src="images/0-135.jpg" alt=""></div><h2>jQuery基础课程</h2><span>让jQuery带您进入网页动态交互世界，为...</span><b>更新完毕 &nbsp;&nbsp;&nbsp;15783人学习</b></a>
+		<div class="text_gobuy">
+			<br/>
+			<p>9小时17分钟 | 初级</p>
+			<br/>
+		</div>
+	</div> 
+	
+	<div class="spbq">
+		<div class="biankuang biankuang_1"></div>
+		<div class="biankuang biankuang_2"></div>
+		<div class="biankuang biankuang_3"></div>
+		<div class="biankuang biankuang_4"></div>
+		<a href="#"><div class="zst"><img src="images/0-135.jpg" alt=""></div><h2>jQuery基础课程</h2><span>让jQuery带您进入网页动态交互世界，为...</span><b>更新完毕 &nbsp;&nbsp;&nbsp;15783人学习</b></a>
+		<div class="text_gobuy">
+			<br/>
+			<p>9小时17分钟 | 初级</p>
+			<br/>
+		</div>
+	</div>
+	
+	<div class="spbq">
+		<div class="biankuang biankuang_1"></div>
+		<div class="biankuang biankuang_2"></div>
+		<div class="biankuang biankuang_3"></div>
+		<div class="biankuang biankuang_4"></div>
+		<a href="#"><div class="zst"><img src="images/0-135.jpg" alt=""></div><h2>jQuery基础课程</h2><span>让jQuery带您进入网页动态交互世界，为...</span><b>更新完毕 &nbsp;&nbsp;&nbsp;15783人学习</b></a>
+		<div class="text_gobuy">
+			<br/>
+			<p>9小时17分钟 | 初级</p>
+			<br/>
+		</div>
+	</div>
+	
+</div>    
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> 
+<script type="text/javascript">
+//边框效果--移入
+function biankuang(obj){
+    $(obj).find('.biankuang_1').stop(true).animate({
+        height:'305px'
+    },300)
+    $(obj).find('.biankuang_2').stop(true).delay(300).animate({
+        width:'360px'
+    },300)
+    $(obj).find('.biankuang_3').stop(true).animate({
+        height:'305px'
+    },300)
+    $(obj).find('.biankuang_4').stop(true).delay(300).animate({
+        width:'360px'
+    },300)
+}
+//边框效果--移出
+function biankuang1(obj){
+
+    $(obj).find('.biankuang_1').stop(true).delay(100).animate({
+        height:'0px'
+    },100)
+    $(obj).find('.biankuang_2').stop(true).animate({
+        width:'0px'
+    },100)
+    $(obj).find('.biankuang_3').stop(true).delay(100).animate({
+        height:'0px'
+    },100)
+    $(obj).find('.biankuang_4').stop(true).animate({
+        width:'0px'
+    },100)
+}
+//触发
+$('.spbq').hover(
+	function () {
+	  var obj = $(this);
+			$(obj).find('.text_gobuy').addClass('text_gobuy_show');
+			$(obj).find('.search_y').animate({left:'150',opacity:1},300);
+		biankuang(obj);
+	},
+	function () {
+	  var obj = $(this);
+		$(obj).find('.text_gobuy').removeClass('text_gobuy_show');
+		$(obj).find('.search_y').animate({left:'100',opacity:0},300);
+		biankuang1(obj);
+	}
+);
+</script>
+
+
+</body>
+</html>
